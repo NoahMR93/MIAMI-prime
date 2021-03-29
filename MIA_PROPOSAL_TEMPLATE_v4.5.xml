@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <simulation version="4.5">
   <debugLevel>0</debugLevel>
-  <duration>120</duration>
+  <duration>1200</duration>
   <fixedSeed>0</fixedSeed>
   <monthOf1990>600</monthOf1990>
   <traceFiles>
