@@ -14,4 +14,3 @@ reg_part_acq_rate_hi	Equation	reg_part_acq_rate_low*high_risk_mult
 casual_part_acq_rate_hi	Equation	casual_part_acq_rate_low*high_risk_mult
 csw_part_acq_rate_hi	Equation	csw_part_acq_rate_low*high_risk_mult_CSW
 risk_assortivity	Uniform	0.2	0.8
-race_eth_multiplier	Uniform 0.023	0.305
