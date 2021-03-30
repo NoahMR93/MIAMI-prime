@@ -821,5 +821,67 @@
       <rolloutEligibility criterion="CD4" parameter="CD4Upp" time="864">350</rolloutEligibility>
       <rolloutEligibility criterion="CD4" parameter="CD4Upp" time="912">10000</rolloutEligibility>
     </populationInterventions>
+        <groups>
+      <group label="PREP-MSM">
+        <enrollment-period>960-1020</enrollment-period>
+        <permanent-effect>true</permanent-effect>
+        <open-enrollment>true</open-enrollment>
+        <eligibility-criteria>
+          <hiv-status>negative</hiv-status>
+          <sexual-activity-status>active</sexual-activity-status>
+          <risk-group>high</risk-group>
+          <sexual-orientation>msm</sexual-orientation>
+        </eligibility-criteria>
+        <partitions>
+          <partition label="PREP-MSMs">
+            <proportion>0.003</proportion>
+            <trace>true</trace>
+            <interventions time="0">
+              <preExposureProphylaxisAdherence>0.6</preExposureProphylaxisAdherence>
+            </interventions>
+          </partition>
+        </partitions>
+      </group>
+      <group label="PREP-MSMW">
+        <enrollment-period>960-1020</enrollment-period>
+        <permanent-effect>true</permanent-effect>
+        <open-enrollment>true</open-enrollment>
+        <eligibility-criteria>
+          <hiv-status>negative</hiv-status>
+          <sexual-activity-status>active</sexual-activity-status>
+          <risk-group>high</risk-group>
+          <sexual-orientation>msmw</sexual-orientation>
+        </eligibility-criteria>
+        <partitions>
+          <partition label="PREP-MSMWs">
+            <proportion>0.003</proportion>
+            <trace>true</trace>
+            <interventions time="0">
+              <preExposureProphylaxisAdherence>0.6</preExposureProphylaxisAdherence>
+            </interventions>
+          </partition>
+        </partitions>
+      </group>
+      <group label="PREP-Hetero">
+        <enrollment-period>960-1020</enrollment-period>
+        <permanent-effect>true</permanent-effect>
+        <open-enrollment>true</open-enrollment>
+        <eligibility-criteria>
+          <hiv-status>negative</hiv-status>
+          <sexual-activity-status>active</sexual-activity-status>
+          <risk-group>high</risk-group>
+          <sexual-orientation>msw</sexual-orientation>
+        </eligibility-criteria>
+        <partitions>
+          <partition label="PREP-Hetero">
+            <proportion>0.001</proportion>
+            <trace>true</trace>
+            <interventions time="0">
+              <preExposureProphylaxisAdherence>0.6</preExposureProphylaxisAdherence>
+            </interventions>
+          </partition>
+        </partitions>
+      </group>
+    </groups>
   </interventions>
 </simulation>
