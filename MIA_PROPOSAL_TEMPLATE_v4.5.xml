@@ -214,7 +214,7 @@
            http://www.flhealthcharts.com/charts/DataViewer/BirthViewer/BirthViewer.aspx?cid=25 -->
       <birthRate>0.0111</birthRate>
       <fertilityRate>
-        <rateForAgeRange lower="15" upper="44">0.0557</rateForAgeRange>
+        <rateForAgeRange lower="15" upper="44">0.00447</rateForAgeRange>
       </fertilityRate>
       <demographicDistributions>
         <gender MALE="0.486" FEMALE="0.514"/>
