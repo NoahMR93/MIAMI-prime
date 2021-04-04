@@ -184,7 +184,7 @@
   <population id="Miami">
     <ageOfMajority>17</ageOfMajority>
     <initialState useCounts="false">
-      <size>100000</size>
+      <size>10000</size>
       <useCounts>false</useCounts>
       <entityDistributions>
         <ageRangeDistributions>
