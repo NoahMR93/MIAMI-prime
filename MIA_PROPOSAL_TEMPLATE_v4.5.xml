@@ -46,6 +46,9 @@
       <time>1020</time>
       <time>1140</time>
     </lifeExpectancy>
+    <prepOutcomes enabled="true" tossIfCalibFail="false">
+      <extension>PrepOutcomes.xls</extension>
+    </prepOutcomes>
     <partnerAcquisition enabled="false" tossIfCalibFail="false">
       <extension>PartAcq.xls</extension>
       <time>6</time>
@@ -311,6 +314,127 @@
         <lateStage>0.00355</lateStage>
       </maleToMale>
     </transmissionCoefficients>
+    <preExposureProphylaxis>
+      <prepEfficacy>0.80</prepEfficacy>
+      <prepDefaults>
+        <prepEligibility>
+          <!-- monthSinceLastHIVTest -->
+          <!-- HIVStatus (unknown if passed 6 months) -->
+          <partnerCount>6</partnerCount>
+          <partnerStatus>any-positive</partnerStatus>
+          <partnerRiskLevel>high</partnerRiskLevel>
+          <monthsSinceUnprotectedAct>12</monthsSinceUnprotectedAct>
+        </prepEligibility>
+        <prepAccess>0.80</prepAccess>
+        <prepAdherence>0.80</prepAdherence>       
+        <prepRetention>0.80</prepRetention>       
+        <prepReturnToCare>0.06</prepReturnToCare>
+      </prepDefaults>
+      <prepProfiles>
+        <demographic bucket="SA:MALE:MSW:*:*:*:*">
+          <prepAccess>0.06</prepAccess>
+          <prepAdherence>0.06</prepAdherence>
+          <prepRetention>0.06</prepRetention>
+          <prepReturnToCare>0.06</prepReturnToCare>
+        </demographic>
+        <demographic bucket="SA:MALE:MSMW:*:*:WHITE:NON_HISPANIC">
+          <prepAccess>0.06</prepAccess>
+          <prepAdherence>0.06</prepAdherence>
+          <prepRetention>0.06</prepRetention>
+          <prepReturnToCare>0.06</prepReturnToCare>
+        </demographic>
+        <demographic bucket="SA:MALE:MSMW:*:*:WHITE:HISPANIC">
+          <prepAccess>0.06</prepAccess>
+          <prepAdherence>0.06</prepAdherence>
+          <prepRetention>0.06</prepRetention>
+          <prepReturnToCare>0.06</prepReturnToCare>
+        </demographic>
+        <demographic bucket="SA:MALE:MSMW:*:*:BLACK:NON_HISPANIC">
+          <prepAccess>0.06</prepAccess>
+          <prepAdherence>0.06</prepAdherence>
+          <prepRetention>0.06</prepRetention>
+          <prepReturnToCare>0.06</prepReturnToCare>
+        </demographic>
+        <demographic bucket="SA:MALE:MSMW:*:*:BLACK:HISPANIC">
+          <prepAccess>0.06</prepAccess>
+          <prepAdherence>0.06</prepAdherence>
+          <prepRetention>0.06</prepRetention>
+          <prepReturnToCare>0.06</prepReturnToCare>
+        </demographic>
+        <demographic bucket="SA:MALE:MSM:*:*:WHITE:NON_HISPANIC">
+          <prepAccess>0.06</prepAccess>
+          <prepAdherence>0.06</prepAdherence>
+          <prepRetention>0.06</prepRetention>
+          <prepReturnToCare>0.06</prepReturnToCare>
+        </demographic>
+        <demographic bucket="SA:MALE:MSM:*:*:WHITE:HISPANIC">
+          <prepAccess>0.06</prepAccess>
+          <prepAdherence>0.06</prepAdherence>
+          <prepRetention>0.06</prepRetention>
+          <prepReturnToCare>0.06</prepReturnToCare>
+        </demographic>
+        <demographic bucket="SA:MALE:MSM:*:*:BLACK:NON_HISPANIC">
+          <prepAccess>0.06</prepAccess>
+          <prepAdherence>0.06</prepAdherence>
+          <prepRetention>0.06</prepRetention>
+          <prepReturnToCare>0.06</prepReturnToCare>
+        </demographic>
+        <demographic bucket="SA:MALE:MSM:*:*:BLACK:HISPANIC">
+          <prepAccess>0.06</prepAccess>
+          <prepAdherence>0.06</prepAdherence>
+          <prepRetention>0.06</prepRetention>
+          <prepReturnToCare>0.06</prepReturnToCare>
+        </demographic>
+        <demographic bucket="SA:FEMALE:MSW:*:NON_CSW:WHITE:NON_HISPANIC">
+          <prepAccess>0.06</prepAccess>
+          <prepAdherence>0.06</prepAdherence>
+          <prepRetention>0.06</prepRetention>
+          <prepReturnToCare>0.06</prepReturnToCare>
+        </demographic>
+        <demographic bucket="SA:FEMALE:MSW:*:NON_CSW:WHITE:HISPANIC">
+          <prepAccess>0.06</prepAccess>
+          <prepAdherence>0.06</prepAdherence>
+          <prepRetention>0.06</prepRetention>
+          <prepReturnToCare>0.06</prepReturnToCare>
+        </demographic>
+        <demographic bucket="SA:FEMALE:MSW:*:NON_CSW:BLACK:NON_HISPANIC">
+          <prepAccess>0.06</prepAccess>
+          <prepAdherence>0.06</prepAdherence>
+          <prepRetention>0.06</prepRetention>
+          <prepReturnToCare>0.06</prepReturnToCare>
+        </demographic>
+        <demographic bucket="SA:FEMALE:MSW:*:NON_CSW:BLACK:HISPANIC">
+          <prepAccess>0.06</prepAccess>
+          <prepAdherence>0.06</prepAdherence>
+          <prepRetention>0.06</prepRetention>
+          <prepReturnToCare>0.06</prepReturnToCare>
+        </demographic>
+        <demographic bucket="SA:FEMALE:MSW:*:CSW:WHITE:NON_HISPANIC">
+          <prepAccess>0.06</prepAccess>
+          <prepAdherence>0.06</prepAdherence>
+          <prepRetention>0.06</prepRetention>
+          <prepReturnToCare>0.06</prepReturnToCare>
+        </demographic>
+        <demographic bucket="SA:FEMALE:MSW:*:CSW:WHITE:HISPANIC">
+          <prepAccess>0.06</prepAccess>
+          <prepAdherence>0.06</prepAdherence>
+          <prepRetention>0.06</prepRetention>
+          <prepReturnToCare>0.06</prepReturnToCare>
+        </demographic>
+        <demographic bucket="SA:FEMALE:MSW:*:CSW:BLACK:NON_HISPANIC">
+          <prepAccess>0.06</prepAccess>
+          <prepAdherence>0.06</prepAdherence>
+          <prepRetention>0.06</prepRetention>
+          <prepReturnToCare>0.06</prepReturnToCare>
+        </demographic>
+        <demographic bucket="SA:FEMALE:MSW:*:CSW:BLACK:HISPANIC">
+          <prepAccess>0.06</prepAccess>
+          <prepAdherence>0.06</prepAdherence>
+          <prepRetention>0.06</prepRetention>
+          <prepReturnToCare>0.06</prepReturnToCare>
+        </demographic>
+      </prepProfiles>
+    </preExposureProphylaxis>
     <entities>
       <entity type="male">
         <allowedRaceAndEthnicities>
