@@ -23,7 +23,7 @@
       <prEPCost>1</prEPCost>
       <vaginalMicrobicideCost>1</vaginalMicrobicideCost>
     </costEffectiveness>
-    <clinical enabled="false" tossIfCalibFail="true">
+    <clinical enabled="true" tossIfCalibFail="true">
       <extension>Clinical.xls</extension>
     </clinical>
     <events enabled="false" tossIfCalibFail="true">
@@ -485,8 +485,8 @@
               <lowRisk>
                 <acquisitionRate>
                   <distribution type="normal">  <!-- NOT changed, in the proposal it says CALIBRATED, NMR-->
-                    <mean>0.005656602674227839</mean>
-                    <stdDev>0</stdDev>
+                    <mean>0.000668525</mean> <!-- I use the lower bound for Steady acq. usin Miami data, NMR-->
+                    <stdDev>0</stdDev> <!-- NOT CHANGED, I DIDN'T FIND IT IN THE EXCEL FILE NMR-->
                   </distribution>
                 </acquisitionRate>
                 <coitalEventsPerMonth>
@@ -503,7 +503,7 @@
                 <partnershipDurationMth>
                   <distribution type="shifted-log-normal">
                     <mean>97.2</mean> <!-- Married vaginal sex,Nasrullah, needs to be checked, NMR-->
-                    <stdDev>1.6</stdDev>  <!-- Married vaginal sex,Nasrullah, own calculation, the difference betwen Hisps and Whites, neecs to be checked,  NMR-->
+                    <stdDev>1.6</stdDev>  <!-- Married vaginal sex,Nasrullah, own calculation, the difference betwen Hisps and Whites, needs to be checked,  NMR-->
                     <shift>0</shift> <!-- ??? NOT changer, NMR -->
                   </distribution>
                 </partnershipDurationMth>
@@ -511,8 +511,8 @@
               <highRisk> <!-- in the Example Input file, the lorisk estimates are used in the hig risk section too, the only difference is the acquisition rate, so I'm copying the above estimates NMR-->
                 <acquisitionRate>
                   <distribution type="normal"> <!-- NOT changed, in the proposal it says CALIBRATED, NMR-->
-                    <mean>0.010759083123481727</mean>
-                    <stdDev>0</stdDev>
+                    <mean>0.009547722</mean> <!-- I use the UPPER bound for Steady acq. usin Miami data, NMR-->
+                    <stdDev>0</stdDev> <!-- NOT CHANGED, I DIDN'T FIND IT IN THE EXCEL FILE NMR-->
                   </distribution>
                 </acquisitionRate>
                 <coitalEventsPerMonth>
@@ -548,8 +548,8 @@
               <lowRisk>
                 <acquisitionRate>
                   <distribution type="normal"> <!-- NOT changed, it the proposal it says CALIBRATED, NMR-->
-                    <mean>0.003684931312261178</mean>
-                    <stdDev>0</stdDev>
+                    <mean>0.000455605</mean> <!-- I use the lower bound for Steady acq. usin Miami data, NMR-->
+                    <stdDev>0</stdDev> <!-- NOT CHANGED, I DIDN'T FIND IT IN THE EXCEL FILE NMR-->
                   </distribution>
                 </acquisitionRate>
                 <coitalEventsPerMonth> 
@@ -574,8 +574,8 @@
               <highRisk>
                 <acquisitionRate>
                   <distribution type="normal"> <!-- NOT changed, it the proposal it says CALIBRATED, NMR-->
-                    <mean>0.0070088858235655745</mean>
-                    <stdDev>0</stdDev>
+                    <mean>0.069444444</mean> <!-- I use the UPPER bound for Steady acq. usin Miami data, NMR-->
+                    <stdDev>0</stdDev> <!-- NOT CHANGED, I DIDN'T FIND IT IN THE EXCEL FILE NMR-->
                   </distribution>
                 </acquisitionRate>
                 <coitalEventsPerMonth>
@@ -611,8 +611,8 @@
               <lowRisk>
                 <acquisitionRate>
                   <distribution type="normal">
-                    <mean>0.05015360235908987</mean> <!-- NOT changed, it the proposal it says CALIBRATED, NMR-->
-                    <stdDev>0</stdDev>
+                    <mean>0.001443941</mean> <!-- I use the lower bound for Steady acq. usin Miami data, NMR-->
+                    <stdDev>0</stdDev> <!-- NOT CHANGED, I DIDN'T FIND IT IN THE EXCEL FILE NMR-->
                   </distribution>
                 </acquisitionRate>
                 <coitalEventsPerMonth>
@@ -637,8 +637,8 @@
               <highRisk>
                 <acquisitionRate>
                   <distribution type="normal">
-                    <mean>0.09539414517869718</mean> <!-- NOT changed, it the proposal it says CALIBRATED, NMR-->
-                    <stdDev>0</stdDev>
+                    <mean>0.041666667</mean> <!-- I use the UPPER bound for Steady acq. usin Miami data, NMR-->
+                    <stdDev>0</stdDev> <!-- NOT CHANGED, I DIDN'T FIND IT IN THE EXCEL FILE NMR-->
                   </distribution>
                 </acquisitionRate>
                 <coitalEventsPerMonth>
@@ -666,15 +666,15 @@
                 <chanceChooseWithSteady>0.00</chanceChooseWithSteady> <!-- NOT changed, NMR-->
                 <averageYearsYounger>
                   <distribution type="normal">
-                    <mean>5</mean> <!-- NOT changed, I don't have info abou it, (not yet) NMR-->
-                    <stdDev>2.5</stdDev> <!-- NOT changed, I don't have info abou it, (not yet) NMR-->
+                    <mean>5</mean> <!-- NOT changed, I don't have info abou it, (not yet??) NMR-->
+                    <stdDev>2.5</stdDev> <!-- NOT changed, I don't have info abou it, (not yet??) NMR-->
                   </distribution>
                 </averageYearsYounger>
               </selectionCriteria>
               <lowRisk>
                 <acquisitionRate>
                   <distribution type="normal">
-                    <mean>0.0537307519688962</mean> <!-- NOT changed, it the proposal it says CALIBRATED, NMR-->
+                    <mean>0.0537307519688962</mean> <!-- NOT changed, Excel File (Par_Acq_Conversion) is not clear, NMR-->
                     <stdDev>0</stdDev>
                   </distribution>
                 </acquisitionRate>
@@ -701,7 +701,7 @@
               <highRisk>
                 <acquisitionRate>
                   <distribution type="normal">
-                    <mean>2.165900531087058</mean> <!-- NOT changed, it the proposal it says CALIBRATED, NMR-->
+                    <mean>2.165900531087058</mean> <!-- NOT changed, Excel File (Par_Acq_Conversion) is not clear, NMR-->
                     <stdDev>0</stdDev>
                   </distribution>
                 </acquisitionRate>
@@ -731,8 +731,8 @@
         <health>
           <proportionMaleCircumcised>0.378</proportionMaleCircumcised> <!-- Florida Overal Rate, neonates, 2016 NMR-->
           <circumcisionProtectEfficacy>0.56</circumcisionProtectEfficacy> <!-- NOT changed, don't have data yet, NMR-->
-          <condomProtectEfficacy>0.8</condomProtectEfficacy> <!-- NOT changed, don't have data yet, NMR-->
-          <preExposureProphylaxisEfficacy>0.90</preExposureProphylaxisEfficacy> <!-- NOT changed, don't have data yet, NMR-->
+          <condomProtectEfficacy>0.8</condomProtectEfficacy> <!-- NOT changed, don't have data yet (??), NMR-->
+          <preExposureProphylaxisEfficacy>0.90</preExposureProphylaxisEfficacy> <!-- NOT changed, don't have data yet (??), NMR-->
         </health>
       </entity>
       <entity type="female">
