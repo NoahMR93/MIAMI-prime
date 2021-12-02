@@ -1,7 +1,6 @@
-<?xml version="1.0"?>
 <simulation version="4.5">
   <debugLevel>0</debugLevel>
-  <duration>1200</duration>
+  <duration>1008</duration>
   <fixedSeed>0</fixedSeed>
   <monthOf1990>600</monthOf1990>
   <traceFiles>
@@ -11,7 +10,7 @@
     <infection enabled="true" tossIfCalibFail="false">
       <extension>Infections.xls</extension>
     </infection>
-    <partnership enabled="false" tossIfCalibFail="false">
+    <partnership enabled="true" tossIfCalibFail="false">
       <extension>Partnership.xls</extension>
     </partnership>
     <survival enabled="false" tossIfCalibFail="true">
@@ -24,7 +23,7 @@
       <prEPCost>1</prEPCost>
       <vaginalMicrobicideCost>1</vaginalMicrobicideCost>
     </costEffectiveness>
-    <clinical enabled="false" tossIfCalibFail="true">
+    <clinical enabled="true" tossIfCalibFail="true">
       <extension>Clinical.xls</extension>
     </clinical>
     <events enabled="false" tossIfCalibFail="true">
@@ -68,7 +67,7 @@
     <calibrationStatistics enabled="true" tossIfCalibFail="false">
       <extension>CalibStats.xls</extension>
     </calibrationStatistics>
-    <artRollout enabled="true" tossIfCalibFail="true">
+    <artRollout enabled="true" tossIfCalibFail="false">
       <extension>ARTRollout.xls</extension>
     </artRollout>
     <shiftedOutcomes enabled="true" tossIfCalibFail="true">
@@ -142,101 +141,98 @@
     </definition>
   </concurrencyDefinition>
   <calibration enabled="false">
-    <monthOfCalibration>600</monthOfCalibration>
+    <monthOfCalibration>600</monthOfCalibration> 
     <partnershipOutcomes>
-      <steadyPrev>
+      <steadyPrev> <!-- NMR-->
         <popOfInterest>0</popOfInterest>
-        <lwrBound>0.37</lwrBound>
-        <uprBound>0.47</uprBound>
+        <lwrBound>0.36</lwrBound> <!--Total Married Miami,2020,  NMR-->
+        <uprBound>0.47</uprBound> <!-- Total Married living and not living together Herbenick NMR-->
       </steadyPrev>
-      <casualPrev>
-        <popOfInterest>1</popOfInterest>
-        <lwrBound>0.095</lwrBound>
-        <uprBound>0.81</uprBound>
+      <casualPrev><!-- NMR-->
+        <popOfInterest>1</popOfInterest>  
+        <lwrBound>0.15</lwrBound> <!-- Male, Herbenick, NMR-->
+        <uprBound>0.31</uprBound> <!-- Male, Sataras at al, NMR-->
       </casualPrev>
-      <cswPrev>
+      <cswPrev> <!-- Proportion of Male that had sex with a CSW, NMR-->
         <popOfInterest>1</popOfInterest>
-        <lwrBound>0.07</lwrBound>
-        <uprBound>0.27</uprBound>
+        <lwrBound>0.043</lwrBound> <!-- Herbenick, NMR-->
+        <uprBound>0.087</uprBound> <!-- Decker, overall, NMR-->
       </cswPrev>
-      <propInCon>
+      <propInCon> <!-- Concurrency??? NMR-->
         <popOfInterest>1</popOfInterest>
-        <lwrBound>0.17</lwrBound>
-        <uprBound>0.60</uprBound>
-      </propInCon>
-      <femaleCasualPrev>
+        <lwrBound>0.113</lwrBound> <!-- Hamiltona, NMR-->
+        <uprBound>0.1908</uprBound> <!-- Hamiltona, NMR-->
+      </propInCon> 
+      <femaleCasualPrev> 
         <ratio>1</ratio>
       </femaleCasualPrev>
-      <femalePropInCon>
+      <femalePropInCon> 
         <ratio>1</ratio>
       </femalePropInCon>
-      <femaleNumActsLRtoHR>
+      <femaleNumActsLRtoHR> 
         <ratio>1</ratio>
       </femaleNumActsLRtoHR>
-      <numActs>
+      <numActs> 
         <popOfInterest>0</popOfInterest>
         <lwrBound>0</lwrBound>
         <uprBound>50</uprBound>
       </numActs>
     </partnershipOutcomes>
-    <yearlyIncidenceRanges>
-      <yearlyIncidenceRange time="816" lower="0.0066" upper="0.0224"/>
-      <yearlyIncidenceRange time="864" lower="0.0043" upper="0.0227"/>
+    <yearlyIncidenceRanges> <!-- NMR --> 
+      <yearlyIncidenceRange time="648" lower="0.0004958" upper="0.0019833"/> <!-- 2000,Changed to Miami data, previously: time="816" lower="0.0066" upper="0.0224"-->
+      <yearlyIncidenceRange time="696" lower="0.0003712" upper="0.0014849"/> <!-- 2004,Changed to Miami data, check notes, previoulsy: "864" lower="0.0043" upper="0.0227"-->
     </yearlyIncidenceRanges>
   </calibration>
   <population id="Miami">
     <ageOfMajority>17</ageOfMajority>
     <initialState useCounts="false">
-      <size>10000</size>
+      <size>50000</size>
       <useCounts>false</useCounts>
       <entityDistributions>
         <ageRangeDistributions>
-          <!-- needs citation -->
-          <ageRange lower="0" upper="14">0.17</ageRange>
+          <ageRange lower="0" upper="14">0.17</ageRange> <!-- Florida Health Charts 2019 NMR-->
           <ageRange lower="15" upper="19">0.06</ageRange>
-          <ageRange lower="20" upper="24">0.07</ageRange>
+          <ageRange lower="20" upper="24">0.06</ageRange>
           <ageRange lower="25" upper="34">0.14</ageRange>
           <ageRange lower="35" upper="44">0.14</ageRange>
           <ageRange lower="45" upper="54">0.15</ageRange>
-          <ageRange lower="55" upper="100">0.27</ageRange>
+          <ageRange lower="55" upper="100">0.28</ageRange>
         </ageRangeDistributions>
         <demographicDistributions>
-          <gender MALE="0.486" FEMALE="0.514"/>
-          <orientation MSW="0.92" MSM="0.07" MSMW="0.01"/>
+          <gender MALE="0.49" FEMALE="0.51"/> <!-- Florida Health Charts 2019 NMR-->
+          <orientation MSW="0.925" MSM="0.053" MSMW="0.022"/> <!-- LIEB 2007, and NHBS NMR-->
           <raceAndEthnicityProfiles>
-            <raceAndEthnicity type="WHITE:NON_HISPANIC">0.13</raceAndEthnicity>
-            <raceAndEthnicity type="WHITE:HISPANIC">0.70</raceAndEthnicity>
-            <raceAndEthnicity type="BLACK:NON_HISPANIC">0.15</raceAndEthnicity>
-            <raceAndEthnicity type="OTHER:NON_HISPANIC">0.02</raceAndEthnicity>
+            <raceAndEthnicity type="WHITE:NON_HISPANIC">0.13</raceAndEthnicity> <!-- Florida Health Charts 2019 NMR, POPULATION TAB CDM PARAMETERS-->
+            <raceAndEthnicity type="WHITE:HISPANIC">0.66</raceAndEthnicity>
+            <raceAndEthnicity type="BLACK:NON_HISPANIC">0.18</raceAndEthnicity>
+            <raceAndEthnicity type="OTHER:NON_HISPANIC">0.03</raceAndEthnicity>
           </raceAndEthnicityProfiles>
         </demographicDistributions>
       </entityDistributions>
     </initialState>
-    <births useBirthRate="false">
-      <!-- 2018 Miami-Dade Fertility Rate, Ages 15-44 
-           http://www.flhealthcharts.com/charts/DataViewer/BirthViewer/BirthViewer.aspx?cid=25 -->
+    <births useBirthRate="false"> <!-- I'm using the Fertility Rate, NMR-->
       <birthRate>0.0111</birthRate>
       <fertilityRate>
-        <rateForAgeRange lower="15" upper="44">0.00447</rateForAgeRange>
+        <rateForAgeRange lower="15" upper="44">0.00520</rateForAgeRange> <!-- monthly, MIAMI, florida health charts rate 2019-->
       </fertilityRate>
       <demographicDistributions>
-        <gender MALE="0.486" FEMALE="0.514"/>
-        <orientation MSW="0.92" MSM="0.07" MSMW="0.01"/>
+        <gender MALE="0.49" FEMALE="0.51"/> <!-- Florida Health Charts 2019 NMR-->
+        <orientation MSW="0.925" MSM="0.053" MSMW="0.022"/> <!-- LIEB and NHBS NMR-->
         <raceAndEthnicityProfiles>
-          <raceAndEthnicity type="WHITE:NON_HISPANIC">0.13</raceAndEthnicity>
-          <raceAndEthnicity type="WHITE:HISPANIC">0.70</raceAndEthnicity>
-          <raceAndEthnicity type="BLACK:NON_HISPANIC">0.15</raceAndEthnicity>
-          <raceAndEthnicity type="OTHER:NON_HISPANIC">0.02</raceAndEthnicity>
+          <raceAndEthnicity type="WHITE:NON_HISPANIC">0.13</raceAndEthnicity> <!-- Florida Health Charts 2019 NMR-->
+          <raceAndEthnicity type="WHITE:HISPANIC">0.66</raceAndEthnicity>
+          <raceAndEthnicity type="BLACK:NON_HISPANIC">0.18</raceAndEthnicity>
+          <raceAndEthnicity type="OTHER:NON_HISPANIC">0.03</raceAndEthnicity>
         </raceAndEthnicityProfiles>
       </demographicDistributions>
     </births>
     <initialInfections>
       <delay>600</delay>
-      <chanceSeedChronicInfection>0.90</chanceSeedChronicInfection>
-      <useCoefficients>true</useCoefficients>
-      <seedPrevalence>0.01</seedPrevalence>
-      <!-- FEMALE -->
-      <!-- male are 3x female; black/latinx are 4x white; high risk is 3x low; msm/msmw is 2x msw -->
+      <chanceSeedChronicInfection>0.98</chanceSeedChronicInfection> <!-- no info for 1996 (prior 2014), ratio:ND/(Prev-ND) 2007, FROM Irene Hall 2010, AND FDOH, NMR -->
+      <useCoefficients>true</useCoefficients> 
+      <seedPrevalence>0.0097</seedPrevalence> <!-- FDOH, Change to 1996 Miami, NO data for 1996, for now seed at 2007, Cases:23,704, Pop: 2,455,829, NMR-->
+      <!-- FEMALE --> <!-- previous comments, NMR -->
+      <!-- male are 3x female; black/latinx are 4x white; high risk is 3x low; msm/msmw is 2x msw --> <!-- Previous comments, this will change, NMR -->
       <profile bucket="SA:FEMALE:MSW:*:NON_CSW:WHITE:NON_HISPANIC" risk="low" age-range="17-49">1</profile>
       <profile bucket="SA:FEMALE:MSW:*:NON_CSW:WHITE:HISPANIC" risk="low" age-range="17-49">4</profile>
       <profile bucket="SA:FEMALE:MSW:*:NON_CSW:BLACK:NON_HISPANIC" risk="low" age-range="17-49">4</profile>
@@ -280,38 +276,38 @@
       <profile bucket="SA:MALE:MSM:*:NON_CSW:OTHER:NON_HISPANIC" risk="high" age-range="17-49">18</profile>
     </initialInfections>
     <transmissionCoefficients>
-      <maleToFemale>
+      <maleToFemale> <!-- Changed using Dan's Table, NMR-->
         <hvl0>0.0001</hvl0>
         <hvl1>0.0001</hvl1>
-        <hvl2>0.0012</hvl2>
+        <hvl2>0.0011</hvl2>
         <hvl3>0.0012</hvl3>
         <hvl4>0.0014</hvl4>
         <hvl5>0.0023</hvl5>
         <hvl6>0.0023</hvl6>
-        <primary>0.00819</primary>
-        <lateStage>0.00355</lateStage>
+        <primary>0.00810</primary>
+        <lateStage>0.00430</lateStage>
       </maleToFemale>
       <femaleToMale>
         <hvl0>0.0001</hvl0>
         <hvl1>0.0001</hvl1>
-        <hvl2>0.0012</hvl2>
+        <hvl2>0.0011</hvl2>
         <hvl3>0.0012</hvl3>
         <hvl4>0.0014</hvl4>
         <hvl5>0.0023</hvl5>
         <hvl6>0.0023</hvl6>
-        <primary>0.00819</primary>
-        <lateStage>0.00355</lateStage>
+        <primary>0.00810</primary>
+        <lateStage>0.00430</lateStage>
       </femaleToMale>
       <maleToMale>
-        <hvl0>0.0001</hvl0>
-        <hvl1>0.0001</hvl1>
-        <hvl2>0.0012</hvl2>
-        <hvl3>0.0012</hvl3>
-        <hvl4>0.0014</hvl4>
-        <hvl5>0.0023</hvl5>
-        <hvl6>0.0023</hvl6>
-        <primary>0.00819</primary>
-        <lateStage>0.00355</lateStage>
+        <hvl0>0.0008</hvl0>
+        <hvl1>0.0008</hvl1>
+        <hvl2>0.0088</hvl2>
+        <hvl3>0.0096</hvl3>
+        <hvl4>0.0110</hvl4>
+        <hvl5>0.0180</hvl5>
+        <hvl6>0.0180</hvl6>
+        <primary>0.0650</primary>
+        <lateStage>0.0344</lateStage>
       </maleToMale>
     </transmissionCoefficients>
     <preExposureProphylaxis>
@@ -320,19 +316,19 @@
         <prepEligibility>
           <!-- monthSinceLastHIVTest -->
           <!-- HIVStatus (unknown if passed 6 months) -->
-          <partnerCount>6</partnerCount>
+          <partnerCount>1</partnerCount> <!-- ???? what is this. EXPLAIN THIS SECTION, NMR -->
           <partnerStatus>any-positive</partnerStatus>
           <partnerRiskLevel>high</partnerRiskLevel>
           <monthsSinceUnprotectedAct>12</monthsSinceUnprotectedAct>
         </prepEligibility>
-        <prepAccess>0.80</prepAccess>
+        <prepAccess>0.80</prepAccess> <!-- THIS SECTION IS GOING TO CHANGE, I HAVEN'T MODIFIED THESE ESTIMATES, NMR -->
         <prepAdherence>0.80</prepAdherence>       
         <prepRetention>0.80</prepRetention>       
         <prepReturnToCare>0.06</prepReturnToCare>
       </prepDefaults>
       <prepProfiles>
-        <demographic bucket="SA:MALE:MSW:*:*:*:*">
-          <prepAccess>0.06</prepAccess>
+        <demographic bucket="SA:MALE:MSW:*:*:*:*"> <!--Remove what you don't have, NMR-->
+          <prepAccess>0.6</prepAccess>
           <prepAdherence>0.06</prepAdherence>
           <prepRetention>0.06</prepRetention>
           <prepReturnToCare>0.06</prepReturnToCare>
@@ -452,27 +448,27 @@
         <behavior>
           <cswEndAge>50</cswEndAge>
           <!-- chanceBecomeSexWorker can't be 0.00. Include just enough to ignore -->
-          <chanceBecomeSexWorker>0.001</chanceBecomeSexWorker>
-          <partnerAcqMultWithSteadyHighRisk>1</partnerAcqMultWithSteadyHighRisk>
-          <partnerAcqMultWithSteadyLowRisk>@part_acq_mult_steady</partnerAcqMultWithSteadyLowRisk>
-          <highRiskAcqRateMultiplier enabled="true">5</highRiskAcqRateMultiplier>
-          <highRiskCswAcqRateMultiplier enabled="true">20</highRiskCswAcqRateMultiplier>
+          <chanceBecomeSexWorker>@chance_CSW_F</chanceBecomeSexWorker> <!-- I still don't have these indicators NMR-->
+          <partnerAcqMultWithSteadyHighRisk>@high_risk_mult</partnerAcqMultWithSteadyHighRisk> <!-- Not changed, does have to change??? NMR-->
+          <partnerAcqMultWithSteadyLowRisk>@part_acq_mult_steady</partnerAcqMultWithSteadyLowRisk> <!-- Not changed, does have to change??? NMR-->
+          <highRiskAcqRateMultiplier enabled="true">5</highRiskAcqRateMultiplier> <!-- Not changed, does have to change??? NMR-->
+          <highRiskCswAcqRateMultiplier enabled="true">20</highRiskCswAcqRateMultiplier> <!-- Not changed, does have to change??? NMR-->
           <proportionHighRiskCsw>1</proportionHighRiskCsw>
-          <proportionHighRiskNonCsw>@prop_high_risk_M</proportionHighRiskNonCsw>
-          <chanceMsmwChooseMale>0.5</chanceMsmwChooseMale>
-          <chanceMsmChooseMsmw>0.29</chanceMsmChooseMsmw>
+          <proportionHighRiskNonCsw>@prop_high_risk_M</proportionHighRiskNonCsw> <!-- Not changed, does have to change??? NMR-->
+          <chanceMsmwChooseMale>0.5</chanceMsmwChooseMale> <!-- Not changed, does have to change??? NMR-->
+          <chanceMsmChooseMsmw>0.29</chanceMsmChooseMsmw> <!-- Not changed, does have to change??? NMR-->
           <ageDiscounting>
             <startAgeYrs>50</startAgeYrs>
             <acquisitionDiscByYr>0.10</acquisitionDiscByYr>
             <coitalActsDiscByYr>0.10</coitalActsDiscByYr>
           </ageDiscounting>
           <assortivity>
-            <riskAssortivity>@risk_assortivity</riskAssortivity>
-            <raceEthnicAssortivity baseline="1.0" useCoefficients="false">
-              <raceAndEthnicity race="WHITE" ethnicity="NON_HISPANIC">0.13</raceAndEthnicity>
-              <raceAndEthnicity race="WHITE" ethnicity="HISPANIC">0.70</raceAndEthnicity>
-              <raceAndEthnicity race="BLACK" ethnicity="NON_HISPANIC">0.15</raceAndEthnicity>
-              <raceAndEthnicity race="OTHER" ethnicity="NON_HISPANIC">0.02</raceAndEthnicity>
+            <riskAssortivity>@risk_assortivity</riskAssortivity> <!-- White Males, Hamiltona, I have this for white, black and other, also for females, and MSM, but here is just one line, so used White-Males NMR-->
+            <raceEthnicAssortivity baseline="1.0" useCoefficients="false"> <!-- Not changed, does have to change??? NMR-->
+              <raceAndEthnicity race="WHITE" ethnicity="NON_HISPANIC">@risk_assort_white</raceAndEthnicity><!-- Florida Health Charts 2019 NMR-->
+              <raceAndEthnicity race="WHITE" ethnicity="HISPANIC">@risk_assort_hispanic</raceAndEthnicity>
+              <raceAndEthnicity race="BLACK" ethnicity="NON_HISPANIC">@risk_assort_black</raceAndEthnicity>
+              <raceAndEthnicity race="OTHER" ethnicity="NON_HISPANIC">@risk_assort_other</raceAndEthnicity>
             </raceEthnicAssortivity>
           </assortivity>
           <partnershipTypes>
@@ -481,158 +477,157 @@
                 <chanceChooseWithSteady>0.00</chanceChooseWithSteady>
                 <averageYearsYounger>
                   <distribution type="normal">
-                    <mean>5</mean>
-                    <stdDev>2.5</stdDev>
+                    <mean>0.3</mean> <!-- Married, husband and wife whithin 1 yr, US Census 2009, NMR-->
+                    <stdDev>6.7</stdDev> <!-- Married, husband 2-3 yrs older, US Census 2009, NMR-->
                   </distribution>
                 </averageYearsYounger>
               </selectionCriteria>
               <lowRisk>
                 <acquisitionRate>
-                  <distribution type="normal">
-                    <mean>@steady_part_acq_rate_low</mean>
-                    <stdDev>0</stdDev>
+                  <distribution type="normal">  <!-- NOT changed, in the proposal it says CALIBRATED, NMR-->
+                    <mean>@steady_part_acq_rate_low</mean> <!-- I use the lower bound for Steady acq. usin Miami data, NMR-->
+                    <stdDev>0</stdDev> <!-- NOT CHANGED, I DIDN'T FIND IT IN THE EXCEL FILE NMR-->
                   </distribution>
                 </acquisitionRate>
                 <coitalEventsPerMonth>
                   <distribution type="poisson">
-                    <mean>9</mean>
+                    <mean>9.2</mean>  <!-- From Married Men, Ueda 2020,  own calculation, NMR-->
                   </distribution>
                 </coitalEventsPerMonth>
                 <chanceCondomUsePerEvent>
                   <distribution type="normal">
-                    <mean>0.006</mean>
-                    <stdDev>0.001</stdDev>
+                    <mean>0.198</mean>  <!-- Married vaginal sex,Nasrullah 2017, NMR-->
+                    <stdDev>0.028</stdDev>  <!-- Married vaginal sex,Nasrullah 2017, NMR-->
                   </distribution>
                 </chanceCondomUsePerEvent>
                 <partnershipDurationMth>
-                  <distribution type="shifted-log-normal">
-                    <mean>122.64</mean>
-                    <stdDev>94.56</stdDev>
-                    <shift>0</shift>
+                  <distribution type="shifted-log-normal"> 
+                    <mean>97.2</mean> <!-- Married vaginal sex,Nasrullah, needs to be checked, NMR-->
+                    <stdDev>1.6</stdDev>  <!-- Married vaginal sex,Nasrullah, own calculation, the difference betwen Hisps and Whites, needs to be checked,  NMR-->
+                    <shift>0</shift> <!-- ??? NOT changer, NMR -->
                   </distribution>
                 </partnershipDurationMth>
               </lowRisk>
-              <highRisk>
+              <highRisk> <!-- in the Example Input file, the lorisk estimates are used in the hig risk section too, the only difference is the acquisition rate, so I'm copying the above estimates NMR-->
                 <acquisitionRate>
-                  <distribution type="normal">
-                    <mean>@steady_part_acq_rate_hi</mean>
-                    <stdDev>0</stdDev>
+                  <distribution type="normal"> <!-- NOT changed, in the proposal it says CALIBRATED, NMR-->
+                    <mean>@steady_part_acq_rate_hi</mean> <!-- I use the UPPER bound for Steady acq. usin Miami data, NMR-->
+                    <stdDev>0</stdDev> <!-- NOT CHANGED, I DIDN'T FIND IT IN THE EXCEL FILE NMR-->
                   </distribution>
                 </acquisitionRate>
                 <coitalEventsPerMonth>
-                  <distribution type="poisson">
-                    <mean>9</mean>
+                  <distribution type="poisson"> <!-- From Married Men, Ueda 2020,  own calculation, NMR-->
+                    <mean>9.2</mean>
                   </distribution>
                 </coitalEventsPerMonth>
                 <chanceCondomUsePerEvent>
                   <distribution type="normal">
-                    <mean>0.006</mean>
-                    <stdDev>0.001</stdDev>
+                    <mean>0.198</mean> <!-- Married vaginal sex,Nasrullah 2017, NMR-->
+                    <stdDev>0.028</stdDev> <!-- Married vaginal sex,Nasrullah 2017, NMR-->
                   </distribution>
                 </chanceCondomUsePerEvent>
                 <partnershipDurationMth>
                   <distribution type="shifted-log-normal">
-                    <mean>122.64</mean>
-                    <stdDev>94.56</stdDev>
-                    <shift>0</shift>
+                    <mean>97.2</mean> <!-- Married vaginal sex,Nasrullah, needs to be checked, NMR-->
+                    <stdDev>1.6</stdDev> <!-- Married vaginal sex,Nasrullah, own calculation, the difference betwen Hisps and Whites, neecs to be checked,  NMR-->
+                    <shift>0</shift>  <!-- ??? NOT changer, NMR -->
                   </distribution>
                 </partnershipDurationMth>
               </highRisk>
             </partnership>
             <partnership type="regular">
               <selectionCriteria>
-                <chanceChooseWithSteady>0.05</chanceChooseWithSteady>
+                <chanceChooseWithSteady>0.05</chanceChooseWithSteady> <!-- NOT changed, NMR-->
                 <averageYearsYounger>
                   <distribution type="normal">
-                    <mean>5</mean>
-                    <stdDev>2.5</stdDev>
+                    <mean>1.06</mean> <!-- Male, Oudekerk 2014, Miami CDM Parameters 2021  NMR-->
+                    <stdDev>1.63</stdDev> <!-- Male, Oudekerk 2014, Miami CDM Parameters 2021  NMR-->
                   </distribution>
                 </averageYearsYounger>
               </selectionCriteria>
               <lowRisk>
                 <acquisitionRate>
-                  <distribution type="normal">
-                    <mean>@casual_part_acq_rate_low</mean>
-                    <stdDev>0</stdDev>
+                  <distribution type="normal"> <!-- NOT changed, it the proposal it says CALIBRATED, NMR-->
+                    <mean>@reg_part_acq_rate_low</mean> <!-- I use the lower bound for Steady acq. usin Miami data, NMR-->
+                    <stdDev>0</stdDev> <!-- NOT CHANGED, I DIDN'T FIND IT IN THE EXCEL FILE NMR-->
                   </distribution>
                 </acquisitionRate>
-                <coitalEventsPerMonth>
-                  <distribution type="poisson">
-                    <mean>6.5</mean>  <!-- Median from Botswana BM Rates -->
+                <coitalEventsPerMonth> 
+                  <distribution type="poisson"> 
+                    <mean>@num_acts_per_month_reg</mean>  <!-- Men, Ueda 2016-2018,  NMR-->
                   </distribution>
                 </coitalEventsPerMonth>
                 <chanceCondomUsePerEvent>
-                  <distribution type="normal">
-                    <mean>0.52</mean>
-                    <stdDev>0.001</stdDev>
+                  <distribution type="normal"> 
+                    <mean>0.582</mean> <!-- Unmarried Men, Nasrullah 2017,  NMR-->
+                    <stdDev>0.1</stdDev> <!-- calculated as SD between Unmarried Men and Unmarried Women, Nasrullah 2017,  NMR-->
                   </distribution>
                 </chanceCondomUsePerEvent>
                 <partnershipDurationMth>
                   <distribution type="shifted-log-normal">
-                    <mean>13.5</mean>
-                    <stdDev>9</stdDev>
-                    <shift>0</shift>
+                    <mean>16.8</mean> <!-- average of leangth of romatic realtionships, not married, young adolescents, Lantagne 2017,  NMR-->
+                    <stdDev>11.1</stdDev> <!-- SD of the averages, Lantagne 2017,  NMR-->
+                    <shift>0</shift> <!--??? Not changed, NMR -->
                   </distribution>
                 </partnershipDurationMth>
               </lowRisk>
               <highRisk>
                 <acquisitionRate>
-                  <distribution type="normal">
-                    <mean>@casual_part_acq_rate_hi</mean>
-                    <stdDev>0</stdDev>
+                  <distribution type="normal"> <!-- NOT changed, it the proposal it says CALIBRATED, NMR-->
+                    <mean>@reg_part_acq_rate_hi</mean> <!-- I use the UPPER bound for Steady acq. usin Miami data, NMR-->
+                    <stdDev>0</stdDev> <!-- NOT CHANGED, I DIDN'T FIND IT IN THE EXCEL FILE NMR-->
                   </distribution>
                 </acquisitionRate>
                 <coitalEventsPerMonth>
                   <distribution type="poisson">
-                    <mean>6.1</mean>
-                    <!-- Median from Botswana BM Rates -->
+                    <mean>6.5</mean> <!-- Men, Ueda 2016-2018,  NMR-->
                   </distribution>
                 </coitalEventsPerMonth>
                 <chanceCondomUsePerEvent>
                   <distribution type="normal">
-                    <mean>0.52</mean>
-                    <stdDev>0.001</stdDev>
+                    <mean>0.582</mean> <!-- Unmarried Men, Nasrullah 2017,  NMR-->
+                    <stdDev>0.1</stdDev> <!-- calculated as SD between Unmarried Men and Unmarried Women, Nasrullah 2017,  NMR-->
                   </distribution>
                 </chanceCondomUsePerEvent>
                 <partnershipDurationMth>
                   <distribution type="shifted-log-normal">
-                    <mean>13.5</mean>
-                    <stdDev>9</stdDev>
-                    <shift>0</shift>
+                    <mean>16.8</mean> <!-- average of leangth of romatic realtionships, not married, young adolescents, Lantagne 2017,  NMR-->
+                    <stdDev>11.1</stdDev> <!-- SD of the averages, Lantagne 2017,  NMR-->
+                    <shift>0</shift> <!--??? Not changed, NMR -->
                   </distribution>
                 </partnershipDurationMth>
               </highRisk>
             </partnership>
             <partnership type="casual">
               <selectionCriteria>
-                <chanceChooseWithSteady>0.05</chanceChooseWithSteady>
+                <chanceChooseWithSteady>0.05</chanceChooseWithSteady> <!-- NOT changed, NMR-->
                 <averageYearsYounger>
                   <distribution type="normal">
-                    <mean>5</mean>
-                    <stdDev>2.5</stdDev>
+                    <mean>1.06</mean> <!-- I'm using the same as in Regular partnerships, I (still) dont have date of dration of casual partnership, Male, Oudekerk 2014, Miami CDM Parameters 2021  NMR-->
+                    <stdDev>1.63</stdDev> <!-- The same as above, NMR-->
                   </distribution>
                 </averageYearsYounger>
               </selectionCriteria>
               <lowRisk>
                 <acquisitionRate>
                   <distribution type="normal">
-                    <mean>@reg_part_acq_rate_low</mean>
-                    <stdDev>0</stdDev>
+                    <mean>@casual_part_acq_rate_low</mean> <!-- I use the lower bound for Steady acq. usin Miami data, NMR-->
+                    <stdDev>0</stdDev> <!-- NOT CHANGED, I DIDN'T FIND IT IN THE EXCEL FILE NMR-->
                   </distribution>
                 </acquisitionRate>
                 <coitalEventsPerMonth>
-                  <distribution type="poisson">
+                  <distribution type="poisson"> <!-- NOT changed, it the proposal it says 1, NMR-->
                     <mean>1</mean>
                   </distribution>
                 </coitalEventsPerMonth>
                 <chanceCondomUsePerEvent>
-                  <distribution type="normal">
-                    <mean>0.37</mean>
-                    <stdDev>0.001</stdDev>
+                  <distribution type="normal"> <!-- SAMAN, individul agent: do they sample from this Dist. every time, or do they sample once and then kep it?? -->>
+                    <mean>0.8</mean> <!-- young Male, Staras 2013, Chicago, Other data are similar, except NHBS, NMR-->
+                    <stdDev>0.07</stdDev> <!-- calculated using MALE and FEMALE data, Staras 2013, Chicago, NMR-->
                   </distribution>
                 </chanceCondomUsePerEvent>
                 <partnershipDurationMth>
-                  <distribution type="shifted-log-normal">
+                  <distribution type="shifted-log-normal"> <!-- ??? NOT changed, all section left as it was,  NMR-->
                     <mean>-1</mean>
                     <stdDev>0</stdDev>
                     <shift>0</shift>
@@ -642,23 +637,23 @@
               <highRisk>
                 <acquisitionRate>
                   <distribution type="normal">
-                    <mean>@reg_part_acq_rate_hi</mean>
-                    <stdDev>0</stdDev>
+                    <mean>@casual_part_acq_rate_hi</mean> <!-- I use the UPPER bound for Steady acq. usin Miami data, NMR-->
+                    <stdDev>0</stdDev> <!-- NOT CHANGED, I DIDN'T FIND IT IN THE EXCEL FILE NMR-->
                   </distribution>
                 </acquisitionRate>
                 <coitalEventsPerMonth>
-                  <distribution type="poisson">
+                  <distribution type="poisson">  <!-- NOT changed, it the proposal it says 1, NMR-->
                     <mean>1</mean>
                   </distribution>
                 </coitalEventsPerMonth>
                 <chanceCondomUsePerEvent>
                   <distribution type="normal">
-                    <mean>0.37</mean>
-                    <stdDev>0.001</stdDev>
+                    <mean>0.80</mean>  <!-- young Male, Staras 2013, Chicago, Other data are similar, except NHBS, NMR-->
+                    <stdDev>0.07</stdDev> <!-- calculated using MALE and FEMALE data, Staras 2013, Chicago, NMR-->
                   </distribution>
                 </chanceCondomUsePerEvent>
                 <partnershipDurationMth>
-                  <distribution type="shifted-log-normal">
+                  <distribution type="shifted-log-normal"> <!-- ??? NOT changed, all section left as it was,  NMR-->
                     <mean>-1</mean>
                     <stdDev>0</stdDev>
                     <shift>0</shift>
@@ -666,37 +661,37 @@
                 </partnershipDurationMth>
               </highRisk>
             </partnership>
-            <partnership type="csw">
+            <partnership type="csw"> 
               <selectionCriteria>
-                <chanceChooseWithSteady>0.00</chanceChooseWithSteady>
+                <chanceChooseWithSteady>0.00</chanceChooseWithSteady> <!-- NOT changed, NMR-->
                 <averageYearsYounger>
                   <distribution type="normal">
-                    <mean>5</mean>
-                    <stdDev>2.5</stdDev>
+                    <mean>5</mean> <!-- NOT changed, I don't have info abou it, (not yet??) NMR-->
+                    <stdDev>2.5</stdDev> <!-- NOT changed, I don't have info abou it, (not yet??) NMR-->
                   </distribution>
                 </averageYearsYounger>
               </selectionCriteria>
               <lowRisk>
                 <acquisitionRate>
                   <distribution type="normal">
-                    <mean>@csw_part_acq_rate_low</mean>
+                    <mean>0.0537307519688962</mean> <!-- NOT changed, Excel File (Par_Acq_Conversion) is not clear, NMR-->
                     <stdDev>0</stdDev>
                   </distribution>
                 </acquisitionRate>
                 <coitalEventsPerMonth>
                   <distribution>
-                    <type>Poisson</type>
-                    <mean>1</mean>
+                    <type>Poisson</type> 
+                    <mean>1</mean> <!-- NOT changed, it the proposal it says 1, NMR-->
                   </distribution>
                 </coitalEventsPerMonth>
                 <chanceCondomUsePerEvent>
                   <distribution type="normal">
-                    <mean>0.63</mean>
-                    <stdDev>0.001</stdDev>
+                    <mean>0.76</mean> <!-- Men 18-35 yrs Boston, Decker 2008, I have date Of hispanic immigrants 91.7% reported condom use diffrente paper tough, NMR-->
+                    <stdDev>0.21</stdDev>  <!-- NOT changed, I don't have data to calculate a SD, NMR-->
                   </distribution>
                 </chanceCondomUsePerEvent>
                 <partnershipDurationMth>
-                  <distribution type="shifted-log-normal">
+                  <distribution type="shifted-log-normal"> <!-- NOT changed, it the proposal it says 0, NMR-->
                     <mean>-1</mean>
                     <stdDev>0</stdDev>
                     <shift>0</shift>
@@ -706,24 +701,24 @@
               <highRisk>
                 <acquisitionRate>
                   <distribution type="normal">
-                    <mean>@csw_part_acq_rate_hi</mean>
+                    <mean>2.165900531087058</mean> <!-- NOT changed, Excel File (Par_Acq_Conversion) is not clear, NMR-->
                     <stdDev>0</stdDev>
                   </distribution>
                 </acquisitionRate>
                 <coitalEventsPerMonth>
                   <distribution type="poisson">
-                    <mean>1</mean>
+                    <mean>1</mean> <!-- NOT changed, it the proposal it says 1, NMR-->
                   </distribution>
                 </coitalEventsPerMonth>
                 <chanceCondomUsePerEvent>
                   <distribution type="normal">
-                    <mean>0.63</mean>
-                    <stdDev>0.001</stdDev>
+                    <mean>0.76</mean> <!-- Men 18-35 yrs Boston, Decker 2008, I have date Of hispanic immigrants 91.7% reported condom use diffrente paper tough, NMR-->
+                    <stdDev>0.21</stdDev> <!-- NOT changed, I don't have data to calculate a SD, NMR-->
                   </distribution>
                 </chanceCondomUsePerEvent>
                 <partnershipDurationMth>
                   <distribution type="shifted-log-normal">
-                    <mean>-1</mean>
+                    <mean>-1</mean> <!-- NOT changed, it the proposal it says 0, NMR-->
                     <stdDev>0</stdDev>
                     <shift>0</shift>
                   </distribution>
@@ -734,135 +729,178 @@
           <maxPartnershipRejections>0</maxPartnershipRejections>
         </behavior>
         <health>
-          <proportionMaleCircumcised>0.093</proportionMaleCircumcised>
-          <circumcisionProtectEfficacy>0.56</circumcisionProtectEfficacy>
-          <condomProtectEfficacy>0.8</condomProtectEfficacy>
-          <preExposureProphylaxisEfficacy>0.90</preExposureProphylaxisEfficacy>
+          <proportionMaleCircumcised>0.378</proportionMaleCircumcised> <!-- Florida Overal Rate, neonates, 2016 NMR-->
+          <circumcisionProtectEfficacy>0.56</circumcisionProtectEfficacy> <!-- NOT changed, don't have data yet, NMR-->
+          <condomProtectEfficacy>0.8</condomProtectEfficacy> <!-- NOT changed, don't have data yet (??), NMR-->
+          <preExposureProphylaxisEfficacy>0.90</preExposureProphylaxisEfficacy> <!-- NOT changed, don't have data yet (??), NMR-->
         </health>
       </entity>
       <entity type="female">
         <behavior>
-          <cswEndAge>70</cswEndAge>
-          <chanceBecomeSexWorker>@chance_CSW_F</chanceBecomeSexWorker>
+          <cswEndAge>70</cswEndAge> <!-- NOT changed, don't have data yet, NMR-->
+          <chanceBecomeSexWorker>0.0260742539063401</chanceBecomeSexWorker> <!-- NOT changed, don't have data yet, very difficult to find it for MIAMI/FLORIDA/US, NMR-->
           <!-- Median from Botswana BM Rates -->
-          <proportionHighRiskCsw>1</proportionHighRiskCsw>
-          <proportionHighRiskNonCsw>@prop_high_risk_F</proportionHighRiskNonCsw>
+          <proportionHighRiskCsw>1</proportionHighRiskCsw> <!-- ??? NOT changed, NMR-->
+          <proportionHighRiskNonCsw>@prop_high_risk_F</proportionHighRiskNonCsw> <!-- ??? NOT changed, NMR-->
           <!-- Median from Botswana BM Rates -->
         </behavior>
         <health>
-          <preExposureProphylaxisEfficacy>0.90</preExposureProphylaxisEfficacy>
-          <vaginalMicrobicideEfficacy>0</vaginalMicrobicideEfficacy>
+          <preExposureProphylaxisEfficacy>0.90</preExposureProphylaxisEfficacy> <!-- NOT changed, don't have data yet, NMR-->
+          <vaginalMicrobicideEfficacy>0</vaginalMicrobicideEfficacy> <!-- NOT changed, don't have data yet, NMR-->
         </health>
       </entity>
     </entities>
   </population>
   <interventions>
-    <cepacIntervention>
+    <cepacIntervention enabled="true">
       <cepacTreatmentFiles>
         <treatmentFile>
           <time>0</time>
-          <fileName>Bots_NOART_50a_NoBT.in</fileName>
+          <fileName>07212021B_NoART.in</fileName> <!-- I only replaced the NON-AIDS MORTALITY IN THE .IN FILE, HERE i USE THE AVERAGE FROM 2010 TO 2019, Male and Women Separately, NMR-->
           <fileNumber>0</fileNumber>
+        </treatmentFile>
+        <treatmentFile><!-- Rollout stats in 2007 and continue with the same strategy until all 2013, NMR-->
+          <time>602</time> <!-- Feb 1st 2007 (time 600 is January), changed to model #62, NMR-->
+          <fileName>62T_00.in</fileName>
+          <fileNumber>1</fileNumber>
+        </treatmentFile>    
+        <treatmentFile>
+          <time>684</time> <!-- Jan 1st 2014, model #63, NMR-->
+          <fileName>63T_00.in</fileName>
+          <fileNumber>2</fileNumber>
+        </treatmentFile>
+        <treatmentFile> 
+          <time>696</time> <!-- Jan 1st 2015, I used the model renamed as #64, NMR-->
+          <fileName>64T_00.in</fileName>
+          <fileNumber>3</fileNumber>
+        </treatmentFile>
+        <treatmentFile> <!-- Jan 1st 2016, I used the renamed as #65, NMR-->
+          <time>708</time>
+          <fileName>65T_00.in</fileName>
+          <fileNumber>4</fileNumber>
+        </treatmentFile>
+        <treatmentFile> <!-- Jan 1st 2017, I used the model renamed as #66, NMR-->
+          <time>720</time>
+          <fileName>66T_00.in</fileName>
+          <fileNumber>5</fileNumber>
+        </treatmentFile>
+        <treatmentFile> <!-- Jan 1st 2018, I used the model renamed as #67, NMR-->
+          <time>732</time>
+          <fileName>67T_00.in</fileName>
+          <fileNumber>6</fileNumber>
+        </treatmentFile>
+        <treatmentFile> <!-- Jan 1st 2019, I used the model renamed as #68, NMR-->
+          <time>744</time>
+          <fileName>68T_00.in</fileName>
+          <fileNumber>7</fileNumber>
         </treatmentFile>
       </cepacTreatmentFiles>
     </cepacIntervention>
-    <artRolloutIntervention enabled="false">
-      <dynamicTreatmentScaling enabled="false">
+    <artRolloutIntervention enabled="false"> <!-- FROM THIS LINE UNTIL THE END, I HAVEN'T AND WON'T CHANGE ANYTHIN UNTIL WE TALK WITH DAN, NMR-->
+      <dynamicTreatmentScaling enabled="true">
         <feedbackPeriod>-1</feedbackPeriod>
       </dynamicTreatmentScaling>
       <rolloutTreatmentFiles>
         <rolloutFile>
           <time>0</time>
-          <fileName>Bots_NOART_50a_NoBT.in</fileName>
+          <fileName>07212021B_NoART.in</fileName>
           <fileNumber>0</fileNumber>
           <popToApply>0</popToApply>
         </rolloutFile>
-        <rolloutFile>
-          <time>732</time>
-          <fileName>Bots_ART_50a_2001.in</fileName>
+        <rolloutFile><!-- Rollout stats in 2007 and continue with the same strategy until all 2013, NMR-->
+          <time>601</time> <!-- Feb 1st 2007 (time 600 is January), changed to model #62, NMR-->
+          <fileName>62_5ART.in</fileName>
           <fileNumber>1</fileNumber>
-          <popToApply>1</popToApply>
+          <popToApply>0</popToApply>
         </rolloutFile>
-        <rolloutFile>
-          <time>744</time>
-          <fileName>Bots_NOART_50a_BT25y_2002.in</fileName>
+		<rolloutFile>
+          <time>601</time>
+          <fileName>62_5ART.in</fileName>
           <fileNumber>2</fileNumber>
-          <popToApply>0</popToApply>
+          <popToApply>1</popToApply>
         </rolloutFile>
-        <rolloutFile>
-          <time>744</time>
-          <fileName>Bots_ART_50a_2002.in</fileName>
+		
+		<rolloutFile> <!-- we create a new set of  IN files using linear aproximations for LTF and RTC between 2013 and 2019, This mdoels has 1 interpoation, with values less extreme than those on model 11, NMR-->
+          <time>684</time> <!-- Jan 1st 2014, model #63, NMR-->
+          <fileName>63_5ART.in</fileName>
           <fileNumber>3</fileNumber>
-          <popToApply>1</popToApply>
+          <popToApply>0</popToApply>
         </rolloutFile>
-        <rolloutFile>
-          <time>780</time>
-          <fileName>Bots_NOART_50a_BT11y_2005.in</fileName>
+		<rolloutFile>
+          <time>684</time>
+          <fileName>63_5ART.in</fileName>
           <fileNumber>4</fileNumber>
-          <popToApply>0</popToApply>
-        </rolloutFile>
-        <rolloutFile>
-          <time>780</time>
-          <fileName>Bots_ART_50a_2005.in</fileName>
-          <fileNumber>5</fileNumber>
           <popToApply>1</popToApply>
         </rolloutFile>
-        <rolloutFile>
-          <time>792</time>
-          <fileName>Bots_NOART_50a_BT10y_2006.in</fileName>
-          <fileNumber>6</fileNumber>
+	
+		<rolloutFile> 
+          <time>696</time> <!-- Jan 1st 2015, I used the model renamed as #64, NMR-->
+          <fileName>64_5ART.in</fileName>
+          <fileNumber>5</fileNumber>
           <popToApply>0</popToApply>
         </rolloutFile>
-        <rolloutFile>
-          <time>804</time>
-          <fileName>Bots_NOART_50a_BT09y_2007.in</fileName>
+		<rolloutFile>
+          <time>696</time>
+          <fileName>64_5ART.in</fileName>
+          <fileNumber>6</fileNumber>
+          <popToApply>1</popToApply>
+        </rolloutFile>
+		
+		<rolloutFile> <!-- Jan 1st 2016, I used the renamed as #65, NMR-->
+          <time>708</time>
+          <fileName>65_5ART.in</fileName>
           <fileNumber>7</fileNumber>
           <popToApply>0</popToApply>
         </rolloutFile>
-        <rolloutFile>
-          <time>816</time>
-          <fileName>Bots_NOART_50a_BT08y_2008.in</fileName>
+		<rolloutFile>
+          <time>708</time>
+          <fileName>65_5ART.in</fileName>
           <fileNumber>8</fileNumber>
-          <popToApply>0</popToApply>
-        </rolloutFile>
-        <rolloutFile>
-          <time>780</time>
-          <fileName>Bots_ART_50a_2008.in</fileName>
-          <fileNumber>9</fileNumber>
           <popToApply>1</popToApply>
         </rolloutFile>
-        <rolloutFile>
-          <time>828</time>
-          <fileName>Bots_NOART_50a_BT07y_2009.in</fileName>
-          <fileNumber>10</fileNumber>
+		
+		<rolloutFile> <!-- Jan 1st 2017, I used the model renamed as #66, NMR-->
+          <time>720</time>
+          <fileName>66_5ART.in</fileName>
+          <fileNumber>9</fileNumber>
           <popToApply>0</popToApply>
         </rolloutFile>
-        <rolloutFile>
-          <time>840</time>
-          <fileName>Bots_NOART_50a_BT06y_2010.in</fileName>
+		<rolloutFile>
+          <time>720</time>
+          <fileName>66_5ART.in</fileName>
+          <fileNumber>10</fileNumber>
+          <popToApply>1</popToApply>
+        </rolloutFile>
+		
+		<rolloutFile> <!-- Jan 1st 2018, I used the model renamed as #67, NMR-->
+          <time>732</time>
+          <fileName>67_5ART.in</fileName>
           <fileNumber>11</fileNumber>
           <popToApply>0</popToApply>
         </rolloutFile>
-        <rolloutFile>
-          <time>852</time>
-          <fileName>Bots_NOART_50a_BT05y_2011.in</fileName>
+		<rolloutFile>
+          <time>732</time>
+          <fileName>67_5ART.in</fileName>
           <fileNumber>12</fileNumber>
-          <popToApply>0</popToApply>
+          <popToApply>1</popToApply>
         </rolloutFile>
-        <rolloutFile>
-          <time>864</time>
-          <fileName>Bots_NOART_50a_BT04y_2012.in</fileName>
+		
+		
+		<rolloutFile> <!-- Jan 1st 2019, I used the model renamed as #68, NMR-->
+          <time>744</time>
+          <fileName>68_5ART.in</fileName>
           <fileNumber>13</fileNumber>
           <popToApply>0</popToApply>
         </rolloutFile>
-        <rolloutFile>
-          <time>864</time>
-          <fileName>Bots_ART_50a_2012.in</fileName>
+		<rolloutFile>
+          <time>744</time>
+          <fileName>68_5ART.in</fileName>
           <fileNumber>14</fileNumber>
           <popToApply>1</popToApply>
         </rolloutFile>
+		
       </rolloutTreatmentFiles>
-      <rolloutEligibility>
+      <rolloutEligibility enabled="false">
         <criteria name="OIHist">
           <rank>1</rank>
           <OI0>0</OI0>
@@ -921,91 +959,34 @@
         </criteria>
       </rolloutEligibility>
       <targetRolloutProportions>
-        <target year="2001">0.01</target>
-        <target year="2002">0.02</target>
-        <target year="2003">0.06</target>
-        <target year="2004">0.013</target>
-        <target year="2005">0.19</target>
-        <target year="2006">0.26</target>
-        <target year="2007">0.30</target>
-        <target year="2008">0.37</target>
-        <target year="2009">0.45</target>
-        <target year="2010">0.50</target>
-        <target year="2011">0.55</target>
-        <target year="2012">0.62</target>
-        <target year="2013">0.66</target>
-        <target year="2014">0.71</target>
-        <target year="2015">0.78</target>
+	    <target year="1989">1</target>
+		<target year="1990">1</target>
+		<target year="1991">1</target>
+		<target year="1992">1</target>
+		<target year="1993">1</target>
+		<target year="1994">1</target>
+		<target year="1995">1</target>
+		<target year="1996">1</target>
+		<target year="1997">1</target>
+		<target year="1998">1</target>
+		<target year="1999">1</target>
+		<target year="2000">1</target>
+		<target year="2001">1</target>
+        <target year="2002">1</target>
+        <target year="2003">1</target>
+        <target year="2004">1</target>
+        <target year="2005">1</target>
+        <target year="2006">1</target>
+        <target year="2007">1</target>
+        <target year="2008">1</target>
+        <target year="2009">1</target>
+        <target year="2010">1</target>
+        <target year="2011">1</target>
+        <target year="2012">1</target>
+        <target year="2013">1</target>
+        <target year="2014">1</target>
+        <target year="2015">1</target>
       </targetRolloutProportions>
     </artRolloutIntervention>
-    <populationInterventions>
-      <rolloutEligibility criterion="Identified" parameter="" time="732">true</rolloutEligibility>
-      <rolloutEligibility criterion="CD4" parameter="CD4Upp" time="744">200</rolloutEligibility>
-      <rolloutEligibility criterion="CD4" parameter="CD4Upp" time="816">250</rolloutEligibility>
-      <rolloutEligibility criterion="CD4" parameter="CD4Upp" time="864">350</rolloutEligibility>
-      <rolloutEligibility criterion="CD4" parameter="CD4Upp" time="912">10000</rolloutEligibility>
-    </populationInterventions>
-        <groups>
-      <group label="PREP-MSM">
-        <enrollment-period>960-1020</enrollment-period>
-        <permanent-effect>true</permanent-effect>
-        <open-enrollment>true</open-enrollment>
-        <eligibility-criteria>
-          <hiv-status>negative</hiv-status>
-          <sexual-activity-status>active</sexual-activity-status>
-          <risk-group>high</risk-group>
-          <sexual-orientation>msm</sexual-orientation>
-        </eligibility-criteria>
-        <partitions>
-          <partition label="PREP-MSMs">
-            <proportion>0.003</proportion>
-            <trace>true</trace>
-            <interventions time="0">
-              <preExposureProphylaxisAdherence>0.6</preExposureProphylaxisAdherence>
-            </interventions>
-          </partition>
-        </partitions>
-      </group>
-      <group label="PREP-MSMW">
-        <enrollment-period>960-1020</enrollment-period>
-        <permanent-effect>true</permanent-effect>
-        <open-enrollment>true</open-enrollment>
-        <eligibility-criteria>
-          <hiv-status>negative</hiv-status>
-          <sexual-activity-status>active</sexual-activity-status>
-          <risk-group>high</risk-group>
-          <sexual-orientation>msmw</sexual-orientation>
-        </eligibility-criteria>
-        <partitions>
-          <partition label="PREP-MSMWs">
-            <proportion>0.003</proportion>
-            <trace>true</trace>
-            <interventions time="0">
-              <preExposureProphylaxisAdherence>0.6</preExposureProphylaxisAdherence>
-            </interventions>
-          </partition>
-        </partitions>
-      </group>
-      <group label="PREP-Hetero">
-        <enrollment-period>960-1020</enrollment-period>
-        <permanent-effect>true</permanent-effect>
-        <open-enrollment>true</open-enrollment>
-        <eligibility-criteria>
-          <hiv-status>negative</hiv-status>
-          <sexual-activity-status>active</sexual-activity-status>
-          <risk-group>high</risk-group>
-          <sexual-orientation>msw</sexual-orientation>
-        </eligibility-criteria>
-        <partitions>
-          <partition label="PREP-Hetero">
-            <proportion>0.001</proportion>
-            <trace>true</trace>
-            <interventions time="0">
-              <preExposureProphylaxisAdherence>0.6</preExposureProphylaxisAdherence>
-            </interventions>
-          </partition>
-        </partitions>
-      </group>
-    </groups>
   </interventions>
 </simulation>
