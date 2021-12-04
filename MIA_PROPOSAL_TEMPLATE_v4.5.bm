@@ -11,7 +11,7 @@ steady_part_acq_rate_hi	Equation	steady_part_acq_rate_low*high_risk_mult
 reg_part_acq_rate_hi	Equation	reg_part_acq_rate_low*high_risk_mult
 casual_part_acq_rate_hi	Equation	casual_part_acq_rate_low*high_risk_mult
 risk_assortivity	Uniform	0.56	0.82
-risk_assort_white	Equation	risk_assortivity*0.899
-risk_assort_black	Equation	risk_assortivity*0.639
-risk_assort_hispanic	Equation	risk_assortivity*0.771
+risk_assort_white	Equation	(risk_assortivity - 0.56)*0.1 + 0.8
+risk_assort_black	Equation	(risk_assortivity - 0.56)*0.04 + 0.74
+risk_assort_hispanic	Equation	(risk_assortivity - 0.56)*0.14 + 0.5
 risk_assort_other	Equation	risk_assort_white
