@@ -1,6 +1,6 @@
 <simulation version="4.5">
   <debugLevel>0</debugLevel>
-  <duration>1008</duration>
+  <duration>1200</duration>
   <fixedSeed>0</fixedSeed>
   <monthOf1990>600</monthOf1990>
   <traceFiles>
@@ -48,7 +48,7 @@
     <prepOutcomes enabled="true" tossIfCalibFail="false">
       <extension>PrepOutcomes.xls</extension>
     </prepOutcomes>
-    <partnerAcquisition enabled="false" tossIfCalibFail="false">
+    <partnerAcquisition enabled="false" tossIfCalibFail="true">
       <extension>PartAcq.xls</extension>
       <time>6</time>
       <time>60</time>
@@ -56,7 +56,7 @@
       <time>599</time>
       <time>660</time>
     </partnerAcquisition>
-    <partnerNetwork enabled="true" tossIfCalibFail="false">
+    <partnerNetwork enabled="false" tossIfCalibFail="false">
       <time>6</time>
       <time>60</time>
       <time>120</time>
@@ -70,7 +70,7 @@
     <artRollout enabled="true" tossIfCalibFail="false">
       <extension>ARTRollout.xls</extension>
     </artRollout>
-    <shiftedOutcomes enabled="true" tossIfCalibFail="true">
+    <shiftedOutcomes enabled="false" tossIfCalibFail="true">
       <extension>ShiftedOutcomes.xls</extension>
     </shiftedOutcomes>
   </traceFiles>
@@ -140,22 +140,22 @@
       <allow>0</allow>
     </definition>
   </concurrencyDefinition>
-  <calibration enabled="false">
+  <calibration enabled="true">
     <monthOfCalibration>600</monthOfCalibration> 
     <partnershipOutcomes>
       <steadyPrev> <!-- NMR-->
         <popOfInterest>0</popOfInterest>
         <lwrBound>0.36</lwrBound> <!--Total Married Miami,2020,  NMR-->
-        <uprBound>0.47</uprBound> <!-- Total Married living and not living together Herbenick NMR-->
+        <uprBound>0.50</uprBound> <!-- Total Married living and not living together Herbenick NMR-->
       </steadyPrev>
       <casualPrev><!-- NMR-->
         <popOfInterest>1</popOfInterest>  
-        <lwrBound>0.15</lwrBound> <!-- Male, Herbenick, NMR-->
+        <lwrBound>0.104</lwrBound> <!-- Male, Herbenick, NMR-->
         <uprBound>0.31</uprBound> <!-- Male, Sataras at al, NMR-->
       </casualPrev>
       <cswPrev> <!-- Proportion of Male that had sex with a CSW, NMR-->
         <popOfInterest>1</popOfInterest>
-        <lwrBound>0.043</lwrBound> <!-- Herbenick, NMR-->
+        <lwrBound>0.032</lwrBound> <!-- Herbenick, NMR-->
         <uprBound>0.087</uprBound> <!-- Decker, overall, NMR-->
       </cswPrev>
       <propInCon> <!-- Concurrency??? NMR-->
@@ -164,13 +164,13 @@
         <uprBound>0.1908</uprBound> <!-- Hamiltona, NMR-->
       </propInCon> 
       <femaleCasualPrev> 
-        <ratio>1</ratio>
+        <ratio>2</ratio>
       </femaleCasualPrev>
       <femalePropInCon> 
-        <ratio>1</ratio>
+        <ratio>2</ratio>
       </femalePropInCon>
       <femaleNumActsLRtoHR> 
-        <ratio>1</ratio>
+        <ratio>2</ratio>
       </femaleNumActsLRtoHR>
       <numActs> 
         <popOfInterest>0</popOfInterest>
@@ -179,14 +179,13 @@
       </numActs>
     </partnershipOutcomes>
     <yearlyIncidenceRanges> <!-- NMR --> 
-      <yearlyIncidenceRange time="648" lower="0.0004958" upper="0.0019833"/> <!-- 2000,Changed to Miami data, previously: time="816" lower="0.0066" upper="0.0224"-->
-      <yearlyIncidenceRange time="696" lower="0.0003712" upper="0.0014849"/> <!-- 2004,Changed to Miami data, check notes, previoulsy: "864" lower="0.0043" upper="0.0227"-->
+      <yearlyIncidenceRange time="648" lower="0.0001518" upper="0.0013660"/> <!-- 2011,Changed to Miami data, Miami CDM Parameters 2021, NMR 04 26 2022. previously: time="816" lower="0.0066" upper="0.0224"-->
     </yearlyIncidenceRanges>
   </calibration>
   <population id="Miami">
     <ageOfMajority>17</ageOfMajority>
     <initialState useCounts="false">
-      <size>50000</size>
+      <size>1000000</size>
       <useCounts>false</useCounts>
       <entityDistributions>
         <ageRangeDistributions>
@@ -203,7 +202,7 @@
           <orientation MSW="0.925" MSM="0.053" MSMW="0.022"/> <!-- LIEB 2007, and NHBS NMR-->
           <raceAndEthnicityProfiles>
             <raceAndEthnicity type="WHITE:NON_HISPANIC">0.13</raceAndEthnicity> <!-- Florida Health Charts 2019 NMR, POPULATION TAB CDM PARAMETERS-->
-            <raceAndEthnicity type="WHITE:HISPANIC">0.66</raceAndEthnicity>
+            <raceAndEthnicity type="WHITE:HISPANIC">0.69</raceAndEthnicity>
             <raceAndEthnicity type="BLACK:NON_HISPANIC">0.18</raceAndEthnicity>
             <raceAndEthnicity type="OTHER:NON_HISPANIC">0.03</raceAndEthnicity>
           </raceAndEthnicityProfiles>
@@ -227,6 +226,7 @@
       </demographicDistributions>
     </births>
     <initialInfections>
+	<!--H>@param1</!-->
       <delay>600</delay>
       <chanceSeedChronicInfection>0.98</chanceSeedChronicInfection> <!-- no info for 1996 (prior 2014), ratio:ND/(Prev-ND) 2007, FROM Irene Hall 2010, AND FDOH, NMR -->
       <useCoefficients>true</useCoefficients> 
@@ -328,57 +328,57 @@
       </prepDefaults>
       <prepProfiles>
         <demographic bucket="SA:MALE:MSW:*:*:*:*"> <!--Remove what you don't have, NMR-->
-          <prepAccess>0.6</prepAccess>
-          <prepAdherence>0.06</prepAdherence>
-          <prepRetention>0.06</prepRetention>
+          <prepAccess>0.017</prepAccess>
+          <prepAdherence>0.043</prepAdherence>
+          <prepRetention>0.036</prepRetention>
           <prepReturnToCare>0.06</prepReturnToCare>
         </demographic>
         <demographic bucket="SA:MALE:MSMW:*:*:WHITE:NON_HISPANIC">
-          <prepAccess>0.06</prepAccess>
-          <prepAdherence>0.06</prepAdherence>
-          <prepRetention>0.06</prepRetention>
+          <prepAccess>0.017</prepAccess>
+          <prepAdherence>0.043</prepAdherence>
+          <prepRetention>0.036</prepRetention>
           <prepReturnToCare>0.06</prepReturnToCare>
         </demographic>
         <demographic bucket="SA:MALE:MSMW:*:*:WHITE:HISPANIC">
-          <prepAccess>0.06</prepAccess>
-          <prepAdherence>0.06</prepAdherence>
-          <prepRetention>0.06</prepRetention>
+          <prepAccess>0.017</prepAccess>
+          <prepAdherence>0.043</prepAdherence>
+          <prepRetention>0.036</prepRetention>
           <prepReturnToCare>0.06</prepReturnToCare>
         </demographic>
         <demographic bucket="SA:MALE:MSMW:*:*:BLACK:NON_HISPANIC">
-          <prepAccess>0.06</prepAccess>
-          <prepAdherence>0.06</prepAdherence>
-          <prepRetention>0.06</prepRetention>
+          <prepAccess>0.017</prepAccess>
+          <prepAdherence>0.043</prepAdherence>
+          <prepRetention>0.036</prepRetention>
           <prepReturnToCare>0.06</prepReturnToCare>
         </demographic>
         <demographic bucket="SA:MALE:MSMW:*:*:BLACK:HISPANIC">
-          <prepAccess>0.06</prepAccess>
-          <prepAdherence>0.06</prepAdherence>
-          <prepRetention>0.06</prepRetention>
+          <prepAccess>0.017</prepAccess>
+          <prepAdherence>0.043</prepAdherence>
+          <prepRetention>0.036</prepRetention>
           <prepReturnToCare>0.06</prepReturnToCare>
         </demographic>
         <demographic bucket="SA:MALE:MSM:*:*:WHITE:NON_HISPANIC">
-          <prepAccess>0.06</prepAccess>
-          <prepAdherence>0.06</prepAdherence>
-          <prepRetention>0.06</prepRetention>
+          <prepAccess>0.017</prepAccess>
+          <prepAdherence>0.043</prepAdherence>
+          <prepRetention>0.036</prepRetention>
           <prepReturnToCare>0.06</prepReturnToCare>
         </demographic>
         <demographic bucket="SA:MALE:MSM:*:*:WHITE:HISPANIC">
-          <prepAccess>0.06</prepAccess>
-          <prepAdherence>0.06</prepAdherence>
-          <prepRetention>0.06</prepRetention>
+          <prepAccess>0.017</prepAccess>
+          <prepAdherence>0.043</prepAdherence>
+          <prepRetention>0.036</prepRetention>
           <prepReturnToCare>0.06</prepReturnToCare>
         </demographic>
         <demographic bucket="SA:MALE:MSM:*:*:BLACK:NON_HISPANIC">
-          <prepAccess>0.06</prepAccess>
-          <prepAdherence>0.06</prepAdherence>
-          <prepRetention>0.06</prepRetention>
+          <prepAccess>0.017</prepAccess>
+          <prepAdherence>0.043</prepAdherence>
+          <prepRetention>0.036</prepRetention>
           <prepReturnToCare>0.06</prepReturnToCare>
         </demographic>
         <demographic bucket="SA:MALE:MSM:*:*:BLACK:HISPANIC">
-          <prepAccess>0.06</prepAccess>
-          <prepAdherence>0.06</prepAdherence>
-          <prepRetention>0.06</prepRetention>
+          <prepAccess>0.017</prepAccess>
+          <prepAdherence>0.043</prepAdherence>
+          <prepRetention>0.036</prepRetention>
           <prepReturnToCare>0.06</prepReturnToCare>
         </demographic>
         <demographic bucket="SA:FEMALE:MSW:*:NON_CSW:WHITE:NON_HISPANIC">
@@ -448,13 +448,13 @@
         <behavior>
           <cswEndAge>50</cswEndAge>
           <!-- chanceBecomeSexWorker can't be 0.00. Include just enough to ignore -->
-          <chanceBecomeSexWorker>@chance_CSW_F</chanceBecomeSexWorker> <!-- I still don't have these indicators NMR-->
-          <partnerAcqMultWithSteadyHighRisk>@high_risk_mult</partnerAcqMultWithSteadyHighRisk> <!-- Not changed, does have to change??? NMR-->
-          <partnerAcqMultWithSteadyLowRisk>@part_acq_mult_steady</partnerAcqMultWithSteadyLowRisk> <!-- Not changed, does have to change??? NMR-->
-          <highRiskAcqRateMultiplier enabled="true">5</highRiskAcqRateMultiplier> <!-- Not changed, does have to change??? NMR-->
-          <highRiskCswAcqRateMultiplier enabled="true">20</highRiskCswAcqRateMultiplier> <!-- Not changed, does have to change??? NMR-->
+          <chanceBecomeSexWorker>0.001</chanceBecomeSexWorker> <!-- Leve it like it is, 03 21 2022 (value from Botswana, seemms ok) 03 21 2022, NMR-->
+          <partnerAcqMultWithSteadyHighRisk>1</partnerAcqMultWithSteadyHighRisk> <!-- BM 03 21 2022, NMR-->
+          <partnerAcqMultWithSteadyLowRisk>@part_acq_mult_steady</partnerAcqMultWithSteadyLowRisk> <!-- Changed on 03 21 2022, Saman,NMR-->
+          <highRiskAcqRateMultiplier enabled="true">@high_risk_mult</highRiskAcqRateMultiplier> <!-- BM 03 21 2022, NMR-->
+          <highRiskCswAcqRateMultiplier enabled="true">@high_risk_mult_CSW</highRiskCswAcqRateMultiplier> <!-- BM 03 21 2022, NMR-->
           <proportionHighRiskCsw>1</proportionHighRiskCsw>
-          <proportionHighRiskNonCsw>@prop_high_risk_M</proportionHighRiskNonCsw> <!-- Not changed, does have to change??? NMR-->
+          <proportionHighRiskNonCsw>@prop_high_risk_M</proportionHighRiskNonCsw> <!-- BM, 03 21 2022, NMR-->
           <chanceMsmwChooseMale>0.5</chanceMsmwChooseMale> <!-- Not changed, does have to change??? NMR-->
           <chanceMsmChooseMsmw>0.29</chanceMsmChooseMsmw> <!-- Not changed, does have to change??? NMR-->
           <ageDiscounting>
@@ -463,11 +463,11 @@
             <coitalActsDiscByYr>0.10</coitalActsDiscByYr>
           </ageDiscounting>
           <assortivity>
-            <riskAssortivity>@risk_assortivity</riskAssortivity> <!-- White Males, Hamiltona, I have this for white, black and other, also for females, and MSM, but here is just one line, so used White-Males NMR-->
+            <riskAssortivity>@risk_assortivity</riskAssortivity> <!-- BM 03 21 2022, NMR - previously : White Males, Hamiltona, I have this for white, black and other, also for females, and MSM, but here is just one line, so used White-Males NMR-->
             <raceEthnicAssortivity baseline="1.0" useCoefficients="false"> <!-- Not changed, does have to change??? NMR-->
-              <raceAndEthnicity race="WHITE" ethnicity="NON_HISPANIC">@risk_assort_white</raceAndEthnicity><!-- Florida Health Charts 2019 NMR-->
-              <raceAndEthnicity race="WHITE" ethnicity="HISPANIC">@risk_assort_hispanic</raceAndEthnicity>
-              <raceAndEthnicity race="BLACK" ethnicity="NON_HISPANIC">@risk_assort_black</raceAndEthnicity>
+              <raceAndEthnicity race="WHITE" ethnicity="NON_HISPANIC">@risk_assort_white</raceAndEthnicity><!-- based on Hamiltona 2015 and Laumann 1999-->
+              <raceAndEthnicity race="WHITE" ethnicity="HISPANIC">@risk_assort_black</raceAndEthnicity>
+              <raceAndEthnicity race="BLACK" ethnicity="NON_HISPANIC">@risk_assort_hispanic</raceAndEthnicity>
               <raceAndEthnicity race="OTHER" ethnicity="NON_HISPANIC">@risk_assort_other</raceAndEthnicity>
             </raceEthnicAssortivity>
           </assortivity>
@@ -485,7 +485,7 @@
               <lowRisk>
                 <acquisitionRate>
                   <distribution type="normal">  <!-- NOT changed, in the proposal it says CALIBRATED, NMR-->
-                    <mean>@steady_part_acq_rate_low</mean> <!-- I use the lower bound for Steady acq. usin Miami data, NMR-->
+                    <mean>@steady_part_acq_rate_low</mean> <!-- BM 03 21 2022, previously:I use the lower bound for Steady acq. usin Miami data, NMR-->
                     <stdDev>0</stdDev> <!-- NOT CHANGED, I DIDN'T FIND IT IN THE EXCEL FILE NMR-->
                   </distribution>
                 </acquisitionRate>
@@ -548,13 +548,13 @@
               <lowRisk>
                 <acquisitionRate>
                   <distribution type="normal"> <!-- NOT changed, it the proposal it says CALIBRATED, NMR-->
-                    <mean>@reg_part_acq_rate_low</mean> <!-- I use the lower bound for Steady acq. usin Miami data, NMR-->
+                    <mean>@reg_part_acq_rate_low</mean> <!--BM 03 21 2022, previously: I use the lower bound for Steady acq. usin Miami data, NMR-->
                     <stdDev>0</stdDev> <!-- NOT CHANGED, I DIDN'T FIND IT IN THE EXCEL FILE NMR-->
                   </distribution>
                 </acquisitionRate>
                 <coitalEventsPerMonth> 
                   <distribution type="poisson"> 
-                    <mean>@num_acts_per_month_reg</mean>  <!-- Men, Ueda 2016-2018,  NMR-->
+                    <mean>@num_acts_per_month_reg</mean>  <!--BM 03 21 2022, previously: Men, Ueda 2016-2018,  NMR-->
                   </distribution>
                 </coitalEventsPerMonth>
                 <chanceCondomUsePerEvent>
@@ -611,7 +611,7 @@
               <lowRisk>
                 <acquisitionRate>
                   <distribution type="normal">
-                    <mean>@casual_part_acq_rate_low</mean> <!-- I use the lower bound for Steady acq. usin Miami data, NMR-->
+                    <mean>@casual_part_acq_rate_low</mean> <!--BM 03 21 2022, previously: I use the lower bound for Steady acq. usin Miami data, NMR-->
                     <stdDev>0</stdDev> <!-- NOT CHANGED, I DIDN'T FIND IT IN THE EXCEL FILE NMR-->
                   </distribution>
                 </acquisitionRate>
@@ -621,7 +621,7 @@
                   </distribution>
                 </coitalEventsPerMonth>
                 <chanceCondomUsePerEvent>
-                  <distribution type="normal"> <!-- SAMAN, individul agent: do they sample from this Dist. every time, or do they sample once and then kep it?? -->>
+                  <distribution type="normal"> <!-- SAMAN, individul agent: do they sample from this Dist. every time, or do they sample once and then kep it?? -->&gt;
                     <mean>0.8</mean> <!-- young Male, Staras 2013, Chicago, Other data are similar, except NHBS, NMR-->
                     <stdDev>0.07</stdDev> <!-- calculated using MALE and FEMALE data, Staras 2013, Chicago, NMR-->
                   </distribution>
@@ -674,7 +674,7 @@
               <lowRisk>
                 <acquisitionRate>
                   <distribution type="normal">
-                    <mean>0.0537307519688962</mean> <!-- NOT changed, Excel File (Par_Acq_Conversion) is not clear, NMR-->
+                    <mean>@csw_part_acq_rate_low</mean> <!--BM 03 21 2022, previously: NOT changed, Excel File (Par_Acq_Conversion) is not clear, NMR-->
                     <stdDev>0</stdDev>
                   </distribution>
                 </acquisitionRate>
@@ -701,7 +701,7 @@
               <highRisk>
                 <acquisitionRate>
                   <distribution type="normal">
-                    <mean>2.165900531087058</mean> <!-- NOT changed, Excel File (Par_Acq_Conversion) is not clear, NMR-->
+                    <mean>@csw_part_acq_rate_hi</mean> <!-- NOT changed, Excel File (Par_Acq_Conversion) is not clear, NMR-->
                     <stdDev>0</stdDev>
                   </distribution>
                 </acquisitionRate>
@@ -737,11 +737,11 @@
       </entity>
       <entity type="female">
         <behavior>
-          <cswEndAge>70</cswEndAge> <!-- NOT changed, don't have data yet, NMR-->
-          <chanceBecomeSexWorker>0.0260742539063401</chanceBecomeSexWorker> <!-- NOT changed, don't have data yet, very difficult to find it for MIAMI/FLORIDA/US, NMR-->
+          <cswEndAge>50</cswEndAge> <!-- US referece, NMR-->
+          <chanceBecomeSexWorker>@chance_CSW_F</chanceBecomeSexWorker> <!--BM 03 21 2022, NMR-->
           <!-- Median from Botswana BM Rates -->
           <proportionHighRiskCsw>1</proportionHighRiskCsw> <!-- ??? NOT changed, NMR-->
-          <proportionHighRiskNonCsw>@prop_high_risk_F</proportionHighRiskNonCsw> <!-- ??? NOT changed, NMR-->
+          <proportionHighRiskNonCsw>@prop_high_risk_F</proportionHighRiskNonCsw> <!--BM 03 21 2022, NMR-->
           <!-- Median from Botswana BM Rates -->
         </behavior>
         <health>
@@ -758,45 +758,10 @@
           <time>0</time>
           <fileName>07212021B_NoART.in</fileName> <!-- I only replaced the NON-AIDS MORTALITY IN THE .IN FILE, HERE i USE THE AVERAGE FROM 2010 TO 2019, Male and Women Separately, NMR-->
           <fileNumber>0</fileNumber>
-        </treatmentFile>
-        <treatmentFile><!-- Rollout stats in 2007 and continue with the same strategy until all 2013, NMR-->
-          <time>602</time> <!-- Feb 1st 2007 (time 600 is January), changed to model #62, NMR-->
-          <fileName>62T_00.in</fileName>
-          <fileNumber>1</fileNumber>
         </treatmentFile>    
-        <treatmentFile>
-          <time>684</time> <!-- Jan 1st 2014, model #63, NMR-->
-          <fileName>63T_00.in</fileName>
-          <fileNumber>2</fileNumber>
-        </treatmentFile>
-        <treatmentFile> 
-          <time>696</time> <!-- Jan 1st 2015, I used the model renamed as #64, NMR-->
-          <fileName>64T_00.in</fileName>
-          <fileNumber>3</fileNumber>
-        </treatmentFile>
-        <treatmentFile> <!-- Jan 1st 2016, I used the renamed as #65, NMR-->
-          <time>708</time>
-          <fileName>65T_00.in</fileName>
-          <fileNumber>4</fileNumber>
-        </treatmentFile>
-        <treatmentFile> <!-- Jan 1st 2017, I used the model renamed as #66, NMR-->
-          <time>720</time>
-          <fileName>66T_00.in</fileName>
-          <fileNumber>5</fileNumber>
-        </treatmentFile>
-        <treatmentFile> <!-- Jan 1st 2018, I used the model renamed as #67, NMR-->
-          <time>732</time>
-          <fileName>67T_00.in</fileName>
-          <fileNumber>6</fileNumber>
-        </treatmentFile>
-        <treatmentFile> <!-- Jan 1st 2019, I used the model renamed as #68, NMR-->
-          <time>744</time>
-          <fileName>68T_00.in</fileName>
-          <fileNumber>7</fileNumber>
-        </treatmentFile>
       </cepacTreatmentFiles>
     </cepacIntervention>
-    <artRolloutIntervention enabled="false"> <!-- FROM THIS LINE UNTIL THE END, I HAVEN'T AND WON'T CHANGE ANYTHIN UNTIL WE TALK WITH DAN, NMR-->
+    <artRolloutIntervention enabled="true"> <!-- FROM THIS LINE UNTIL THE END, I HAVEN'T AND WON'T CHANGE ANYTHIN UNTIL WE TALK WITH DAN, NMR-->
       <dynamicTreatmentScaling enabled="true">
         <feedbackPeriod>-1</feedbackPeriod>
       </dynamicTreatmentScaling>
@@ -807,96 +772,188 @@
           <fileNumber>0</fileNumber>
           <popToApply>0</popToApply>
         </rolloutFile>
-        <rolloutFile><!-- Rollout stats in 2007 and continue with the same strategy until all 2013, NMR-->
-          <time>601</time> <!-- Feb 1st 2007 (time 600 is January), changed to model #62, NMR-->
-          <fileName>62_5ART.in</fileName>
-          <fileNumber>1</fileNumber>
-          <popToApply>0</popToApply>
-        </rolloutFile>
+		<!-- Rollout starts in 2007 and continue with the same strategy until all 2013, NMR-->
+		<!-- Feb 1st 2007 (time 600 is January), changed to model #62, NMR-->
 		<rolloutFile>
+          <time>601</time> <!-- OTHERS O-->
+          <fileName>62M_14b.in</fileName>
+          <fileNumber>1</fileNumber>
+          <popToApply>7</popToApply>
+        </rolloutFile>
+		<rolloutFile> <!-- BLACKS B-->
           <time>601</time>
-          <fileName>62_5ART.in</fileName>
+          <fileName>62M_14_B44b.in</fileName>
           <fileNumber>2</fileNumber>
-          <popToApply>1</popToApply>
+          <popToApply>5</popToApply>
+        </rolloutFile>
+		<rolloutFile> <!-- HISPANICS H-->
+          <time>601</time>
+          <fileName>62M_14_H44b.in</fileName>
+          <fileNumber>3</fileNumber>
+          <popToApply>6</popToApply>
+        </rolloutFile>
+		<rolloutFile> <!-- WHITES W-->
+          <time>601</time>
+          <fileName>62M_14_W44b.in</fileName>
+          <fileNumber>4</fileNumber>
+          <popToApply>4</popToApply>
         </rolloutFile>
 		
-		<rolloutFile> <!-- we create a new set of  IN files using linear aproximations for LTF and RTC between 2013 and 2019, This mdoels has 1 interpoation, with values less extreme than those on model 11, NMR-->
-          <time>684</time> <!-- Jan 1st 2014, model #63, NMR-->
-          <fileName>63_5ART.in</fileName>
-          <fileNumber>3</fileNumber>
-          <popToApply>0</popToApply>
+		<!-- we create a new set of  IN files using linear aproximations for LTC, LTF and RTC between 2013 and 2019, NMR-->
+		<!-- Jan 1st 2014, NMR-->
+		<rolloutFile> <!-- OTHERS O-->
+          <time>684</time> 
+          <fileName>63M_14b.in</fileName>
+          <fileNumber>5</fileNumber>
+          <popToApply>7</popToApply>
         </rolloutFile>
-		<rolloutFile>
+		<rolloutFile> <!-- BLACKS B1-->
           <time>684</time>
-          <fileName>63_5ART.in</fileName>
-          <fileNumber>4</fileNumber>
-          <popToApply>1</popToApply>
+          <fileName>63M_14_B44b.in</fileName>
+          <fileNumber>6</fileNumber>
+          <popToApply>5</popToApply>
+        </rolloutFile>
+		<rolloutFile> <!-- HISPANICS H1-->
+          <time>684</time>
+          <fileName>63M_14_H44b.in</fileName>
+          <fileNumber>7</fileNumber>
+          <popToApply>6</popToApply>
+        </rolloutFile>
+		<rolloutFile> <!-- WHITES W1-->
+          <time>684</time>
+          <fileName>63M_14_W44b.in</fileName>
+          <fileNumber>8</fileNumber>
+          <popToApply>4</popToApply>
         </rolloutFile>
 	
-		<rolloutFile> 
-          <time>696</time> <!-- Jan 1st 2015, I used the model renamed as #64, NMR-->
-          <fileName>64_5ART.in</fileName>
-          <fileNumber>5</fileNumber>
-          <popToApply>0</popToApply>
-        </rolloutFile>
-		<rolloutFile>
-          <time>696</time>
-          <fileName>64_5ART.in</fileName>
-          <fileNumber>6</fileNumber>
-          <popToApply>1</popToApply>
-        </rolloutFile>
-		
-		<rolloutFile> <!-- Jan 1st 2016, I used the renamed as #65, NMR-->
-          <time>708</time>
-          <fileName>65_5ART.in</fileName>
-          <fileNumber>7</fileNumber>
-          <popToApply>0</popToApply>
-        </rolloutFile>
-		<rolloutFile>
-          <time>708</time>
-          <fileName>65_5ART.in</fileName>
-          <fileNumber>8</fileNumber>
-          <popToApply>1</popToApply>
-        </rolloutFile>
-		
-		<rolloutFile> <!-- Jan 1st 2017, I used the model renamed as #66, NMR-->
-          <time>720</time>
-          <fileName>66_5ART.in</fileName>
+	<!-- Jan 1st 2015, NMR-->
+		<rolloutFile> <!-- OTHERS O-->
+          <time>696</time> 
+          <fileName>64M_14b.in</fileName>
           <fileNumber>9</fileNumber>
-          <popToApply>0</popToApply>
+          <popToApply>7</popToApply>
         </rolloutFile>
-		<rolloutFile>
-          <time>720</time>
-          <fileName>66_5ART.in</fileName>
+		<rolloutFile> <!-- BLACKS B-->
+          <time>696</time>
+          <fileName>64M_14_B44b.in</fileName>
           <fileNumber>10</fileNumber>
-          <popToApply>1</popToApply>
+          <popToApply>5</popToApply>
         </rolloutFile>
-		
-		<rolloutFile> <!-- Jan 1st 2018, I used the model renamed as #67, NMR-->
-          <time>732</time>
-          <fileName>67_5ART.in</fileName>
+		<rolloutFile> <!-- HISPANICS H-->
+          <time>696</time>
+          <fileName>64M_14_H44b.in</fileName>
           <fileNumber>11</fileNumber>
-          <popToApply>0</popToApply>
+          <popToApply>6</popToApply>
         </rolloutFile>
-		<rolloutFile>
-          <time>732</time>
-          <fileName>67_5ART.in</fileName>
+		<rolloutFile> <!-- WHITES W-->
+          <time>696</time>
+          <fileName>64M_14_W44b.in</fileName>
           <fileNumber>12</fileNumber>
-          <popToApply>1</popToApply>
+          <popToApply>4</popToApply>
         </rolloutFile>
 		
-		
-		<rolloutFile> <!-- Jan 1st 2019, I used the model renamed as #68, NMR-->
-          <time>744</time>
-          <fileName>68_5ART.in</fileName>
+		<!-- Jan 1st 2016, NMR-->
+		<rolloutFile> 
+          <time>708</time> <!-- OTHERS O-->
+          <fileName>65M_14b.in</fileName>
           <fileNumber>13</fileNumber>
+          <popToApply>7</popToApply>
+        </rolloutFile>
+		<rolloutFile> <!-- BLACKS B-->
+          <time>708</time>
+          <fileName>65M_14_B44b.in</fileName>
+          <fileNumber>14</fileNumber>
+          <popToApply>5</popToApply>
+        </rolloutFile>
+		<rolloutFile> <!-- HISPANICS H-->
+          <time>708</time>
+          <fileName>65M_14_H44b.in</fileName>
+          <fileNumber>15</fileNumber>
+          <popToApply>6</popToApply>
+        </rolloutFile>
+		<rolloutFile> <!-- WHITES W-->
+          <time>708</time>
+          <fileName>65M_14_W44b.in</fileName>
+          <fileNumber>16</fileNumber>
+          <popToApply>4</popToApply>
+        </rolloutFile>
+		
+		<!-- Jan 1st 2017, NMR-->
+		<rolloutFile> <!-- OTHERS O-->
+          <time>720</time>
+          <fileName>66M_14b.in</fileName>
+          <fileNumber>17</fileNumber>
+          <popToApply>7</popToApply>
+        </rolloutFile>
+		<rolloutFile> <!-- BLACKS B-->
+          <time>720</time>
+          <fileName>66M_14_B44b.in</fileName>
+          <fileNumber>18</fileNumber>
+          <popToApply>5</popToApply>
+        </rolloutFile>
+		<rolloutFile> <!-- HISPANICS H-->
+          <time>720</time>
+          <fileName>66M_14_H44b.in</fileName>
+          <fileNumber>19</fileNumber>
+          <popToApply>6</popToApply>
+        </rolloutFile>
+		<rolloutFile> <!-- WHITES W-->
+          <time>720</time>
+          <fileName>66M_14_W44b.in</fileName>
+          <fileNumber>20</fileNumber>
+          <popToApply>4</popToApply>
+        </rolloutFile>
+		
+		<!-- Jan 1st 2018, NMR-->
+		<rolloutFile> <!-- OTHERS O-->
+          <time>732</time>
+          <fileName>67M_14b.in</fileName>
+          <fileNumber>21</fileNumber>
+          <popToApply>7</popToApply>
+        </rolloutFile>
+		<rolloutFile> <!-- BLACKS B-->
+          <time>732</time>
+          <fileName>67M_14_B44b.in</fileName>
+          <fileNumber>22</fileNumber>
+          <popToApply>5</popToApply>
+        </rolloutFile>
+		<rolloutFile> <!-- HISPANICS H-->
+          <time>732</time>
+          <fileName>67M_14_H44b.in</fileName>
+          <fileNumber>23</fileNumber>
+          <popToApply>6</popToApply>
+        </rolloutFile>
+		<rolloutFile> <!-- WHITES W-->
+          <time>732</time>
+          <fileName>67M_14_W44b.in</fileName>
+          <fileNumber>24</fileNumber>
+          <popToApply>4</popToApply>
+        </rolloutFile>
+		
+		<!-- Jan 1st 2019, NMR-->
+		<rolloutFile> <!-- OTHERS O-->
+          <time>744</time>
+          <fileName>68M_14b.in</fileName>
+          <fileNumber>25</fileNumber>
           <popToApply>0</popToApply>
         </rolloutFile>
-		<rolloutFile>
+		<rolloutFile> <!-- BLACKS B-->
           <time>744</time>
-          <fileName>68_5ART.in</fileName>
-          <fileNumber>14</fileNumber>
-          <popToApply>1</popToApply>
+          <fileName>68M_14_B44b.in</fileName>
+          <fileNumber>26</fileNumber>
+          <popToApply>5</popToApply>
+        </rolloutFile>
+		<rolloutFile> <!-- HISPANICS H-->
+          <time>744</time>
+          <fileName>68M_14_H44b.in</fileName>
+          <fileNumber>27</fileNumber>
+          <popToApply>6</popToApply>
+        </rolloutFile>
+		<rolloutFile> <!-- WHITES W-->
+          <time>744</time>
+          <fileName>68M_14_W44b.in</fileName>
+          <fileNumber>28</fileNumber>
+          <popToApply>4</popToApply>
         </rolloutFile>
 		
       </rolloutTreatmentFiles>
@@ -990,3 +1047,4 @@
     </artRolloutIntervention>
   </interventions>
 </simulation>
+
