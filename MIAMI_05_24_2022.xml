@@ -140,7 +140,7 @@
       <allow>0</allow>
     </definition>
   </concurrencyDefinition>
-  <calibration enabled="false">
+  <calibration enabled="true">
     <monthOfCalibration>600</monthOfCalibration> 
     <partnershipOutcomes>
       <steadyPrev> <!-- NMR-->
