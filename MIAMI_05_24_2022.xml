@@ -153,6 +153,21 @@
         <lwrBound>0.104</lwrBound> <!-- Women Herbenick, NMR-->
         <uprBound>0.310</uprBound> <!-- Male, Sataras at al, NMR-->
       </casualPrev>
+      <steadyMSMPrev>
+        <popOfInterest>0</popOfInterest>  
+        <lwrBound>0.053</lwrBound> 
+        <uprBound>0.29</uprBound> 
+      </steadyMSMPrev>    
+      <regularMSMPrev>
+        <popOfInterest>0</popOfInterest>  
+        <lwrBound>0.019</lwrBound> 
+        <uprBound>0.394</uprBound> 
+      </regularMSMPrev>
+      <casualMSMPrev>
+        <popOfInterest>0</popOfInterest>  
+        <lwrBound>0.14</lwrBound> 
+        <uprBound>0.491</uprBound> 
+      </casualMSMPrev>
       <cswPrev> <!-- Proportion of Male that had sex with a CSW, NMR-->
         <popOfInterest>1</popOfInterest>
         <lwrBound>0.032</lwrBound> <!-- Herbenick, NMR-->
