@@ -488,6 +488,8 @@
           </assortivity>
           <partnershipTypes>
             <partnership type="steady">
+	      <BreakupRateForMSW>0.002466</BreakupRateForMSW>
+	      <BreakupRateForMSM>0.004233</BreakupRateForMSM>
               <selectionCriteria>
                 <chanceChooseWithSteady>0.00</chanceChooseWithSteady>
                 <averageYearsYounger>
@@ -551,6 +553,8 @@
               </highRisk>
             </partnership>
             <partnership type="regular">
+	      <BreakupRateForMSW>0.03049</BreakupRateForMSW>
+	      <BreakupRateForMSM>0.01917</BreakupRateForMSM>		    
               <selectionCriteria>
                 <chanceChooseWithSteady>0.05</chanceChooseWithSteady> <!-- NOT changed, NMR-->
                 <averageYearsYounger>
