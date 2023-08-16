@@ -1,0 +1,21 @@
+This R code extracts and joins the output files from the 10x simulation strategy
+You have to run the ART and HIV+ rates scripts first
+Once you have the 10 folders of the Top-20 runs with all the outputs, and with the scripts' output too (ART and HIV+ rates), copy those into your PC
+You have to name the directories, folders, and files in the same way as in the latest simulation, otherwise, the code won't work
+I have the following directory structure:
+Harvard CDM/PrEP CCo MIAMI/PreP Miami/Analisys_10x/optimal_ltc_exp4_0/results/results_MIAMI_BM_10_20_2022_EXP_XXIII_1607/
+The exp_4 was the final experiment, and we used it for the main analysis
+The _i takes values from 0-9, it indicates the total initial populations, for example, the _5 files come from a 1,000,005 initial population
+You have to have 10 folders named, for example, "optimal_ltc_exp4_0" - "optimal_ltc_exp4_9"   
+An alternative is to replace the names and directories in the code
+We ran 4 models, their names are
+optimal_ltc
+pessimistic (later renamed as moderate and excluded from the main analysis)
+more_pessimistic (later renamed as pessimistic)
+no_improvement
+The code extracts the ART, HIV+ rates, Population, and Infection outputs (either from the simulation results or the scripts outputs)
+For the Infections, after extracting the data sets, the code deletes the last 10 lines of each data set
+After opening the 20 data sets of each output (ART, HIV+ rates, Populations, and Infections), the R code joins each set of 20-data sets in one full data set
+Finally, the R code export the full data sets to an Excel format
+The weighted average is done in Excel
+
